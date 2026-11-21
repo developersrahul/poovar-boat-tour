@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NeeraHero from '../components/neera/NeeraHero.astro';
+import PoovarLiveStatus from '../components/PoovarLiveStatus';
+import NeeraAboutServices from '../components/neera/NeeraAboutServices.astro';
+import NeeraRealBoatVideo from '../components/neera/NeeraRealBoatVideo.astro';
+import NeeraCategoryGrid from '../components/neera/NeeraCategoryGrid.astro';
+import NeeraBoatTabSelector from '../components/neera/NeeraBoatTabSelector';
+import NeeraAsymmetricShowcase from '../components/neera/NeeraAsymmetricShowcase.astro';
+import NeeraPricingPlans from '../components/neera/NeeraPricingPlans.astro';
+import NeeraTeamSection from '../components/neera/NeeraTeamSection.astro';
+import NeeraDestinationRoute from '../components/neera/NeeraDestinationRoute';
+import NeeraTestimonials from '../components/neera/NeeraTestimonials.astro';
+import NeeraContactForm from '../components/neera/NeeraContactForm.astro';
+import NeeraLifestyleStrip from '../components/neera/NeeraLifestyleStrip.astro';
+import NeeraHomeEditorialGuide from '../components/neera/NeeraHomeEditorialGuide.astro';
+import NeeraHomeFaq from '../components/neera/NeeraHomeFaq.astro';
+
+// Exact SEO Metadata from PDF
+const pageTitle = "Poovar Boating | Backwater Boat Rides | Poovar Boat Tour";
+const pageDescription = "Book a Poovar boating ride with Poovar Boat Tour. Backwater cruises through mangroves to the golden sand beach. Book online or call today.";
+---
+
+<Layout title={pageTitle} description={pageDescription} canonicalUrl="https://poovarboattour.com/">
+  
+  <!-- =====================================================================
+       1. HERO SECTION (Neera Theme Spaced All-Caps Marcellus & Bronze CTA)
+       Backup saved in src/components/backup_hero/HomeHeroCinematicBackup.astro
+       ===================================================================== -->
+  <NeeraHero />
+
+  <!-- =====================================================================
+       2. TOP ANNOUNCEMENT & LIVE WEATHER / TARIFF STATUS BAR
+       ===================================================================== -->
+  <div class="w-full bg-neera-navy-waves bg-[#06192e] py-3 border-y border-[#b19d7f]/30">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <PoovarLiveStatus client:load />
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       3. ABOUT THE FIRM / SERVICES PROVIDED BY YACHT
+       (Neera Section 4: 4 Feature Rows + Asymmetric Photos)
+       ===================================================================== -->
+  <NeeraAboutServices />
+
+  <!-- =====================================================================
+       3B. REAL CUSTOMER BOAT SHOWCASE (CINEMATIC ON-WATER VIDEO)
+       (Authentic Local Fleet: KIV/VZM/PV/311/18 • Zero Stock Footage)
+       ===================================================================== -->
+  <NeeraRealBoatVideo />
+
+  <!-- =====================================================================
+       4. FIND YOUR BEST: FULL-BLEED 4-COLUMN CRUISE CATEGORY GRID
+       (Neera Section 5: Deep Ocean Dark Navy + Thin Hairline Column Borders)
+       ===================================================================== -->
+  <NeeraCategoryGrid />
+
+  <!-- =====================================================================
+       5. SELECT YOUR RIGHT BOAT ! (INTERACTIVE TABBED FLEET SELECTOR)
+       (Neera Section 6: Horizontal Underlined Tabs + 2-Column Specs Card)
+       ===================================================================== -->
+  <NeeraBoatTabSelector client:visible />
+
+  <!-- =====================================================================
+       EXACT POOVAR DESTINATION GUIDE & ESSENTIALS FROM PDF
+       (What Is Poovar Famous For, Commute, Price, Things to Do, Estuary, Alleppey contrast)
+       ===================================================================== -->
+  <NeeraHomeEditorialGuide />
+
+  <!-- =====================================================================
+       6. OUR EXTRAVAGANT CRUISE (ASYMMETRIC PHOTO SHOWCASE)
+       (Neera Section 7: High-Resolution Authentic Backwater Captures)
+       ===================================================================== -->
+  <NeeraAsymmetricShowcase />
+
+  <!-- =====================================================================
+       7. OUR PRICING PLANS (3-TIER PRICING TABLE)
+       (Neera Section 8: Minimalist Oat/Sand Cards + Exact PDF Tariffs)
+       ===================================================================== -->
+  <NeeraPricingPlans />
+
+  <!-- =====================================================================
+       8. OUR YACHT EXPERTS (NATIVE SKIPPERS & BOAT EXPERTS)
+       (Neera Section 9: Deep Ocean Navy + 4 Licensed Skipper Profiles)
+       ===================================================================== -->
+  <NeeraTeamSection />
+
+  <!-- =====================================================================
+       9. EXPLORE DESTINATIONS (INTERACTIVE GPS ROUTE EXPLORER)
+       (Neera Section 10: Dashed Marine Route Line + Milestone Stops)
+       ===================================================================== -->
+  <NeeraDestinationRoute client:visible />
+
+  <!-- =====================================================================
+       10. CLIENTS FEEDBACK (TESTIMONIALS WITH WAVE DIVIDER)
+       (Neera Section 11: Floating Avatars + Verified Traveler Quotes)
+       ===================================================================== -->
+  <NeeraTestimonials />
+
+  <!-- =====================================================================
+       11. GET IN TOUCH (BOOKING INQUIRY FORM)
+       (Neera Section 12: Topographic Contour Background + Clean 2-Col Form)
+       ===================================================================== -->
+  <!-- =====================================================================
+       HOME PAGE FAQ BLOCK (10 EXACT QUESTIONS & ANSWERS FROM PDF)
+       ===================================================================== -->
+  <NeeraHomeFaq />
+
+  <!-- =====================================================================
+       11. GET IN TOUCH (BOOKING INQUIRY FORM)
+       ===================================================================== -->
+  <NeeraContactForm />
+
+  <!-- =====================================================================
+       12. 8-COLUMN MARITIME LIFESTYLE PHOTO STRIP
+       (Neera Section 13: Edge-to-Edge High-Resolution Captures)
+       ===================================================================== -->
+  <NeeraLifestyleStrip />
+
+</Layout>

@@ -1,0 +1,615 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Exact SEO Metadata from PDF
+const pageTitle = "About Poovar Boat Tour | Local Boating in Poovar";
+const pageDescription = "Meet Poovar Boat Tour, a local backwater boating team in Poovar, Thiruvananthapuram. Learn about our boats, safety and service.";
+
+const aboutFaqs = [
+  {
+    num: "01",
+    q: "1. Who runs Poovar Boat Tour?",
+    a: "Poovar Boat Tour is run by a local team in Poovar, Thiruvananthapuram, Kerala. You can speak to the team directly by phone or through the booking form."
+  },
+  {
+    num: "02",
+    q: "2. Where is Poovar Boat Tour located?",
+    a: "Poovar Boat Tour is on Attupuram–Chalakkara Road, Kulathoor, Ucchakkada P.O., Kerala 695506. Use the map on our Contact page for directions."
+  },
+  {
+    num: "03",
+    q: "3. Is Poovar Boat Tour a local Poovar business?",
+    a: "Yes, Poovar Boat Tour is a local boating business in Poovar. Our team knows the canals, the tides and the best times to take a boat ride."
+  },
+  {
+    num: "04",
+    q: "4. Is Poovar boating safe?",
+    a: "Poovar boat rides are generally safe on the calm backwaters. Poovar Boat Tour provides a boat driver and life jackets, and runs rides only when the weather is safe."
+  },
+  {
+    num: "05",
+    q: "5. Are life jackets provided on the boat?",
+    a: "Yes, Poovar Boat Tour provides life jackets for your group. Please wear your life jacket during the ride, and tell us if anyone needs a smaller size."
+  },
+  {
+    num: "06",
+    q: "6. What safety care does Poovar Boat Tour take?",
+    a: "We run rides with a boat driver and life jackets, and we stop rides in heavy rain or rough water. Ask us any safety question when you book."
+  },
+  {
+    num: "07",
+    q: "7. Can a group ride together in one boat?",
+    a: "Yes, one boat carries up to 7 people, so a family or group can ride together. For a bigger group, ask us about booking more than one boat."
+  },
+  {
+    num: "08",
+    q: "8. What makes Poovar Boat Tour different?",
+    a: "Poovar Boat Tour offers direct booking without agents, one simple price per boat, and four cruises: motor boat, sunset, honeymoon and bird watching. We also run a taxi service."
+  },
+  {
+    num: "09",
+    q: "9. Can I book Poovar Boat Tour directly without an agent?",
+    a: "Yes, you can book directly by phone or through the booking form on our website. Booking directly means you speak to the people who run the boat."
+  },
+  {
+    num: "10",
+    q: "10. Does Poovar Boat Tour offer pick-up and drop?",
+    a: "Yes, Poovar Boat Tour runs a taxi service for pick-up, drop and trips to nearby tourist spots. Ask us for the price when you book."
+  }
+];
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://poovarboattour.com/about/#webpage",
+      "url": "https://poovarboattour.com/about/",
+      "name": "About Poovar Boat Tour",
+      "isPartOf": { "@id": "https://poovarboattour.com/#website" },
+      "about": { "@id": "https://poovarboattour.com/#business" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poovarboattour.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://poovarboattour.com/about/" }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://poovarboattour.com/about/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+
+  <!-- =====================================================================
+       1. HERO SECTION: 90vh Immersive Deep Navy & Bronze Tracking
+       ===================================================================== -->
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] sm:h-[90vh] w-full flex flex-col justify-center items-center bg-neera-navy-waves bg-[#06192e] text-white pt-36 sm:pt-28 pb-16 sm:pb-12 overflow-hidden border-b border-white/10">
+    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30">
+        <i class="ph-fill ph-anchor text-[#b19d7f]"></i> LOCAL POOVAR BOATING TEAM
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-marcellus text-white uppercase tracking-[0.14em] leading-tight max-w-4xl mx-auto">
+        About Poovar Boat Tour
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+        Meet Poovar Boat Tour, a local backwater boating team in Poovar, Thiruvananthapuram. Learn about our boats, safety and service.
+      </p>
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono uppercase tracking-widest text-[#b19d7f]">
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-boat text-[#b19d7f]"></i> Local Boating Company</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-shield-check text-[#b19d7f]"></i> Direct Booking Without Agents</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-map-pin text-[#b19d7f]"></i> Attupuram–Chalakkara Road, Poovar</span>
+      </div>
+
+      <!-- Downward scroll cue -->
+      <div class="pt-8 flex justify-center">
+        <a href="#about-story" class="text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs font-mono uppercase tracking-widest transition">
+          <span>Discover Our Story</span>
+          <i class="ph-bold ph-arrow-down text-sm animate-bounce text-[#b19d7f]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       AWWWARDS-INSPIRED EDITORIAL CANVAS (No repetitive rigid boxes!)
+       ===================================================================== -->
+  <main id="about-story" class="relative bg-[#faf9f5] text-[#0d0d0d] overflow-hidden">
+    
+    <!-- =====================================================================
+         SECTION 1: EDITORIAL OPENING SPREAD (Who We Are & What We Do)
+         Asymmetric luxury layout with organic curved photo frame & clean type
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left Column: Fluid Typographic Narrative -->
+          <div class="lg:col-span-7 space-y-8">
+            
+            <div class="space-y-3">
+              <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+                01 • WHO WE ARE &amp; WHAT WE DO
+              </span>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight">
+                About Poovar Boat Tour
+              </h2>
+            </div>
+
+            <!-- Verbatim Paragraphs from PDF -->
+            <div class="space-y-4 text-base sm:text-lg text-gray-700 font-light leading-relaxed">
+              <p>
+                Poovar Boat Tour is a local boating company in Poovar, Thiruvananthapuram, Kerala. We take families, couples and friends on calm backwater rides through the canals, mangroves and river mouth of Poovar.
+              </p>
+              <p class="text-sm sm:text-base text-gray-600">
+                Visitors often search for a Poovar boat club or a Poovar boating company. We are a small local team that runs the boats ourselves, so you deal directly with the people who take you on the water.
+              </p>
+            </div>
+
+            <!-- Sub-narrative: What We Do -->
+            <div class="pt-6 border-t border-[#ede8e1] space-y-4">
+              <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#06192e] font-bold block">
+                WHAT WE DO
+              </span>
+              <p class="text-sm sm:text-base text-gray-700 font-light leading-relaxed">
+                We run backwater boat rides on the Poovar backwaters, where the Neyyar River meets the Arabian Sea. You can choose a motor boat cruise, a sunset cruise, a honeymoon cruise or a bird watching cruise.
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                We also run a taxi service. We can pick you up, drop you off and take you to nearby tourist spots, so your boat ride and your day out can be planned together.
+              </p>
+            </div>
+
+            <!-- Direct Contact Link -->
+            <div class="pt-2 flex items-center gap-6">
+              <a
+                href="/services/"
+                class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white text-xs font-bold uppercase tracking-[0.18em] rounded-[7px] transition-all duration-300 shadow-xl"
+              >
+                <span>View Boat Rides</span>
+                <span>&rarr;</span>
+              </a>
+              <a
+                href="tel:+917902291301"
+                class="text-xs font-bold uppercase tracking-[0.16em] text-[#b19d7f] hover:text-[#06192e] transition-colors"
+              >
+                Call: 7902291301
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Organic Curved Imagery with Floating Badge -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-white group">
+              <img
+                src="/images/poovar_morning_mist.webp"
+                alt="Poovar Backwater Fleet & Native River Navigation"
+                loading="lazy"
+                class="w-full h-[460px] sm:h-[540px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#06192e]/90 via-[#06192e]/30 to-transparent"></div>
+
+              <!-- Floating Captain's Badge -->
+              <div class="absolute top-5 left-5 bg-[#06192e]/95 text-[#c9b79b] border border-[#b19d7f]/40 px-4 py-2 rounded-[7px] text-[10px] font-mono uppercase tracking-widest shadow-xl flex items-center gap-2">
+                <span class="w-2 h-2 rounded-[7px] bg-[#b19d7f] animate-pulse"></span>
+                <span>Native River Pilots</span>
+              </div>
+
+              <!-- Floating Caption -->
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  Born &amp; Raised in Poovar
+                </span>
+                <p class="text-xs sm:text-sm text-white/95 font-light leading-relaxed">
+                  Generations of local experience navigating the Neyyar River, estuary tides, and mangrove canals.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: TWO-TONE EDITORIAL SPREAD (Operator Advantage & Eco-Care)
+         Seamless contrast between Sand Oat & Deep Ocean Navy (No isolated boxes!)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          
+          <!-- Column A: Why Choose a Local Operator -->
+          <div class="lg:col-span-6 p-8 sm:p-12 rounded-[7px] bg-[#faf9f5] border border-[#ede8e1] flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-[7px] bg-[#06192e] text-[#b19d7f] flex items-center justify-center text-xl shadow-md">
+                <i class="ph-bold ph-compass"></i>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] leading-snug">
+                Why Choose a Local Operator for Poovar Boating?
+              </h3>
+              <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                A local operator such as Poovar Boat Tour knows the backwater route, the tides and the boarding point. You also deal directly with the people who run the boat, so questions and changes are easy to sort out.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-gray-200 text-xs font-mono text-[#06192e] font-semibold flex items-center gap-2">
+              <span class="text-[#b19d7f]">◆</span>
+              <span>Direct Contact • Local Tidal Knowledge • Fast Response</span>
+            </div>
+          </div>
+
+          <!-- Column B: How Guests Can Help Protect the Backwaters -->
+          <div class="lg:col-span-6 p-8 sm:p-12 rounded-[7px] bg-neera-navy-waves bg-[#06192e] text-white border border-[#b19d7f]/30 flex flex-col justify-between space-y-6 shadow-2xl relative overflow-hidden">
+            <div class="space-y-4 relative z-10">
+              <div class="w-12 h-12 rounded-[7px] bg-white/10 text-[#b19d7f] flex items-center justify-center text-xl border border-white/20 shadow-md">
+                <i class="ph-bold ph-leaf"></i>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-marcellus text-white uppercase tracking-[0.10em] leading-snug">
+                How Can Guests Help Protect the Poovar Backwaters?
+              </h3>
+              <p class="text-sm sm:text-base text-white/85 leading-relaxed font-light">
+                Please do not throw plastic or waste into the water, and take your rubbish back with you. Clean backwaters keep the mangroves and the birds healthy for every visitor.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/15 text-xs font-mono text-[#b19d7f] font-semibold flex items-center gap-2 relative z-10">
+              <span>◆</span>
+              <span>Zero Plastic in Canals • Preserved Mangrove Canopies</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: THE NATIVE DIFFERENCE (5 Core Pillars)
+         Horizontal numbered editorial columns with subtle dividers (No box grid!)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block mb-2">
+            THE NATIVE DIFFERENCE
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight">
+            Why Guests Choose Poovar Boat Tour
+          </h2>
+          <p class="mt-3 text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+            The five core principles that make our backwater boat rides trusted, direct, and straightforward.
+          </p>
+        </div>
+
+        <!-- 5 Numbered Editorial Pillars with Minimalist Dividers -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+          
+          <!-- Pillar 01 -->
+          <div class="space-y-4 pt-6 lg:pt-0 lg:px-4 first:lg:pl-0">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              01
+            </span>
+            <h4 class="font-marcellus text-lg sm:text-xl text-[#06192e] uppercase tracking-wide">
+              One simple price
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              A boat costs Rs 1,200 and carries up to 7 people, so a group shares one rate.
+            </p>
+            <div class="pt-2 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              Rs 1,200 / boat (Up to 7 Pax)
+            </div>
+          </div>
+
+          <!-- Pillar 02 -->
+          <div class="space-y-4 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              02
+            </span>
+            <h4 class="font-marcellus text-lg sm:text-xl text-[#06192e] uppercase tracking-wide">
+              Book directly with us
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              You book online or by phone with the boat operator, with no agent in between.
+            </p>
+            <div class="pt-2 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              No Middleman Fees
+            </div>
+          </div>
+
+          <!-- Pillar 03 -->
+          <div class="space-y-4 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              03
+            </span>
+            <h4 class="font-marcellus text-lg sm:text-xl text-[#06192e] uppercase tracking-wide">
+              Four cruises to choose from
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              Pick the ride that suits your trip: motor boat, sunset, honeymoon or bird watching.
+            </p>
+            <div class="pt-2 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              4 Distinct Itineraries
+            </div>
+          </div>
+
+          <!-- Pillar 04 -->
+          <div class="space-y-4 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              04
+            </span>
+            <h4 class="font-marcellus text-lg sm:text-xl text-[#06192e] uppercase tracking-wide">
+              A taxi when you need one
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              We can arrange pick-up, drop and sightseeing with your ride.
+            </p>
+            <div class="pt-2 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              Airport &amp; Hotel Trips
+            </div>
+          </div>
+
+          <!-- Pillar 05 -->
+          <div class="space-y-4 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              05
+            </span>
+            <h4 class="font-marcellus text-lg sm:text-xl text-[#06192e] uppercase tracking-wide">
+              A local team
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              We work in Poovar, so we know the backwaters and the best time to go.
+            </p>
+            <div class="pt-2 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              Native Poovar Navigators
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: OUR COMMITMENT & PROMISE TO GUESTS
+         Editorial Magazine Spread with High-Res Mangrove Ecosystem Frame
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left Column: Curved Photo Frame -->
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-gray-200 group">
+              <img
+                src="/images/poovar_mangrove_deep.webp"
+                alt="Poovar Mangrove Ecosystem"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-center text-xs font-mono uppercase tracking-widest text-[#c9b79b] bg-[#06192e]/90 py-2.5 px-4 rounded-[7px] border border-white/10">
+                Neyyar River &amp; Mangrove Channels
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Our Promise Narrative -->
+          <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+              OUR COMMITMENT
+            </span>
+
+            <h3 class="text-3xl sm:text-4xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight">
+              Our Promise to Guests
+            </h3>
+
+            <!-- Verbatim Paragraphs from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 font-light leading-relaxed">
+              <p>
+                We tell you the price before you book, so there are no surprises. Our boats carry a boat driver and life jackets, and we run rides only when the weather is safe.
+              </p>
+              <p>
+                If you have a question about the route, the timing or the price, ask us. We would rather answer clearly than have you guess.
+              </p>
+            </div>
+
+            <!-- Our Cruises and Taxi Service Note -->
+            <div class="pt-4 border-t border-gray-200 space-y-2">
+              <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+                Our Cruises and Taxi Service
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                See the Poovar motor boat cruise, sunset cruise, honeymoon cruise, bird watching cruise and taxi service on our Services page.
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-3 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+              <a
+                href="/services/"
+                class="px-8 py-3.5 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition-all duration-300 shadow-md hover:-translate-y-0.5"
+              >
+                View our boat cruises
+              </a>
+              <a
+                href="/pricing/"
+                class="px-8 py-3.5 border border-gray-300 hover:border-[#06192e] text-[#06192e] rounded-[7px] transition-all duration-300 hover:bg-gray-100"
+              >
+                Check our prices
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: WHERE TO FIND US (Geographic Mileage Timeline)
+         Minimalist nautical milestone track instead of isolated boxes
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+              LOCATION &amp; ACCESS
+            </span>
+            <h3 class="text-3xl sm:text-4xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+              Where to Find Us
+            </h3>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              Poovar Boat Tour is on Attupuram–Chalakkara Road, Kulathoor, Ucchakkada P.O., Kerala 695506. Poovar is about 30 km from Trivandrum airport and 27 km from Trivandrum Central railway station. Kanyakumari is about 71 km away.
+            </p>
+            <div class="pt-2">
+              <a
+                href="/contact/"
+                class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#b19d7f] hover:text-[#06192e] transition"
+              >
+                <span>Get directions to Jetty</span>
+                <i class="ph-bold ph-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Commute Mile Markers -->
+          <div class="lg:col-span-5 space-y-3">
+            <div class="flex items-center justify-between p-4 rounded-[7px] bg-white border border-[#ede8e1] shadow-xs">
+              <div class="flex items-center gap-3">
+                <i class="ph-bold ph-airplane text-[#b19d7f] text-lg"></i>
+                <span class="text-xs sm:text-sm font-semibold text-[#06192e]">Trivandrum Airport</span>
+              </div>
+              <span class="font-mono text-xs font-bold text-[#b19d7f]">~30 km</span>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-[7px] bg-white border border-[#ede8e1] shadow-xs">
+              <div class="flex items-center gap-3">
+                <i class="ph-bold ph-train text-[#b19d7f] text-lg"></i>
+                <span class="text-xs sm:text-sm font-semibold text-[#06192e]">Trivandrum Central</span>
+              </div>
+              <span class="font-mono text-xs font-bold text-[#b19d7f]">~27 km</span>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-[7px] bg-white border border-[#ede8e1] shadow-xs">
+              <div class="flex items-center gap-3">
+                <i class="ph-bold ph-compass text-[#b19d7f] text-lg"></i>
+                <span class="text-xs sm:text-sm font-semibold text-[#06192e]">Kanyakumari</span>
+              </div>
+              <span class="font-mono text-xs font-bold text-[#b19d7f]">~71 km</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6: BOOK YOUR POOVAR BOAT RIDE (Panoramic Floating Banner)
+         ===================================================================== -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative bg-neera-navy-waves bg-[#06192e] text-white p-8 sm:p-14 lg:p-16 text-center rounded-[7px] border border-[#b19d7f]/40 shadow-2xl overflow-hidden">
+          <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30">
+              <i class="ph-fill ph-ticket text-[#b19d7f]"></i> DIRECT CAPTAIN RESERVATIONS
+            </span>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-marcellus text-white uppercase tracking-[0.14em]">
+              Book Your Poovar Boat Ride
+            </h2>
+            <p class="text-xs sm:text-base text-white/80 font-light leading-relaxed">
+              Call us or fill in the booking form. Tell us your date, time and number of people, and we will confirm your ride.
+            </p>
+            <div class="pt-3 flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+              <a
+                href="/contact/"
+                class="px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl hover:-translate-y-0.5"
+              >
+                Book Now Online
+              </a>
+              <a
+                href="tel:+917902291301"
+                class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-[7px] transition border border-white/20 flex items-center gap-2"
+              >
+                <i class="ph-bold ph-phone text-[#b19d7f]"></i> Call +91 79022 91301
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7: 10 ABOUT US FAQS (Seamless Luxury Accordion List)
+         Delicate hairline dividers, rotating plus indicators (No rigid box grid!)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-t border-[#ede8e1] bg-white">
+      <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center space-y-3">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+            FREQUENTLY ASKED
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+            About Us Frequently Asked Questions
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-600 font-light max-w-xl mx-auto">
+            Direct answers about our native boating crew, safety protocols, location, and group arrangements.
+          </p>
+        </div>
+
+        <!-- Seamless Borderless FAQ Accordion List -->
+        <div class="divide-y divide-gray-200 border-y border-gray-200">
+          {aboutFaqs.map((faq) => (
+            <details name="exclusive-about-faq" class="group py-6 transition-colors duration-200">
+              <summary class="flex items-center justify-between gap-6 cursor-pointer list-none select-none">
+                <div class="flex items-center gap-4 sm:gap-6">
+                  <span class="font-mono text-xs font-bold text-[#b19d7f] px-2.5 py-1 bg-gray-100 rounded-[7px]">
+                    {faq.num}
+                  </span>
+                  <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] group-hover:text-[#b19d7f] tracking-wide transition-colors">
+                    {faq.q.replace(/^\d+\.\s*/, '')}
+                  </h4>
+                </div>
+                <div class="w-8 h-8 rounded-[7px] border border-gray-300 flex items-center justify-center text-sm text-[#b19d7f] flex-shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-[#06192e] group-open:text-white group-open:border-transparent">
+                  +
+                </div>
+              </summary>
+              <div class="pt-4 pl-12 sm:pl-16 pr-4">
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                  {faq.a}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</Layout>

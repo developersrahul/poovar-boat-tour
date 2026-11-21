@@ -1,0 +1,368 @@
+---
+import Navbar from '../components/Navbar.astro';
+import NeeraFooter from '../components/neera/NeeraFooter.astro';
+import BookingModal from '../components/BookingModal.astro';
+import WhatsAppSticky from '../components/WhatsAppSticky.astro';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  image?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  image?: string;
+  googleSiteVerification?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  image = '/images/kerala_backwaters_hero.webp',
+  googleSiteVerification = 'PASTE_THE_META_TAG_FROM_SEARCH_CONSOLE_HERE'
+} = Astro.props;
+
+// Enforce strict trailing slash on canonical and og:url (SEO Shajan requirement 4)
+const siteBase = 'https://poovarboattour.com';
+let finalCanonical = canonicalUrl;
+if (!finalCanonical) {
+  const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+  finalCanonical = `${siteBase}${pathname === '//' ? '/' : pathname}`;
+} else if (!finalCanonical.endsWith('/')) {
+  finalCanonical = `${finalCanonical}/`;
+}
+
+const currentPath = Astro.url.pathname;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://poovarboattour.com/#business",
+      "name": "Poovar Boat Tour",
+      "url": "https://poovarboattour.com/",
+      "description": "Poovar Boat Tour offers backwater boat rides in Poovar, Thiruvananthapuram, Kerala. One boat carries up to 7 people.",
+      "image": "https://poovarboattour.com/images/poovar_backwater_cruise.webp",
+      "logo": "https://poovarboattour.com/images/logo.webp",
+      "telephone": "+917902291301",
+      "email": "info.poovarboating@gmail.com",
+      "priceRange": "INR 1200 per boat",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Attupuram - Chalakkara Road, Kulathoor, Ucchakkada P.O.",
+        "addressLocality": "Kulathoor",
+        "addressRegion": "Kerala",
+        "postalCode": "695506",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "8.3188",
+        "longitude": "77.0655"
+      },
+      "areaServed": ["Poovar", "Thiruvananthapuram", "Kovalam"],
+      "sameAs": [
+        "https://maps.google.com/?cid=poovarboattour",
+        "https://facebook.com/poovarboattour",
+        "https://instagram.com/poovarboattour"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://poovarboattour.com/#website",
+      "url": "https://poovarboattour.com/",
+      "name": "Poovar Boat Tour",
+      "publisher": { "@id": "https://poovarboattour.com/#business" }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon Suite -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#06192e" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <!-- Google Search Console Verification (Requirement 7) -->
+    <meta name="google-site-verification" content={googleSiteVerification} />
+
+    <link rel="canonical" href={finalCanonical} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={finalCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={finalCanonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Google Fonts: El Messiri, Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Marcellus&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Global Editorial Styles matching poovar_boating_about_us_ui.html -->
+    <style is:global>
+      html, body {
+        background-color: #fbfcfd;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #181c18;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      h1, h2, h3, h4, .font-marcellus, .font-serif, .font-display, .font-el-messiri {
+        font-family: 'El Messiri', 'El Messin', sans-serif;
+      }
+
+      /* Editorial Cutout Boxes (replicates the white knockout text overlapping images from the UI reference) */
+      .cutout-line {
+        background-color: #ffffff;
+        display: inline-block;
+        padding: 6px 20px 10px 20px;
+        border-radius: 16px;
+        line-height: 1.05;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Touch The World Of Kerala stacked right-aligned cutout tags */
+      .stacked-cutout {
+        background-color: #ffffff;
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 8px;
+        line-height: 1.15;
+        margin-bottom: 3px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Smooth card hover zoom */
+      .zoom-card img {
+        transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .zoom-card:hover img {
+        transform: scale(1.06);
+      }
+
+      /* High-Performance Hardware-Accelerated Fade-Up Scroll Reveal */
+      .neera-reveal,
+      .reveal-on-scroll,
+      .fade-up,
+      .fade-up-element {
+        opacity: 0;
+        transform: translateY(26px) translateZ(0);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+
+      .neera-reveal.is-revealed,
+      .reveal-on-scroll.is-revealed,
+      .fade-up.is-revealed,
+      .fade-up-element.is-revealed {
+        opacity: 1 !important;
+        transform: translateY(0) translateZ(0) !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .neera-reveal,
+        .reveal-on-scroll,
+        .fade-up,
+        .fade-up-element {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* Custom luxury scrollbar (decreased size & brand bronze color) */
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #faf9f5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #b19d7f;
+        border-radius: 7px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #968366;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #b19d7f #faf9f5;
+      }
+
+      /* Luminous Sheen / Flash Effect on Images */
+      .flash-frame, .group:hover .flash-frame, .zoom-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .flash-frame::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          115deg,
+          transparent 20%,
+          rgba(255, 255, 255, 0.3) 50%,
+          transparent 80%
+        );
+        transform: skewX(-20deg);
+        transition: left 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+        pointer-events: none;
+        z-index: 5;
+      }
+      .flash-frame:hover::after,
+      .group:hover .flash-frame::after {
+        left: 150%;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.97); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+    </style>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="bg-[#fbfcfd] text-[#181c18] font-sans antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-forest-800 selection:text-white">
+    <!-- Sticky Main Navigation Header -->
+    <Navbar currentPath={currentPath} />
+
+    <!-- Main Content Container (Full Width, with content sections contained in max-w-[1280px]) -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <NeeraFooter />
+
+    <!-- Interactive Direct Booking Modal & Toast -->
+    <BookingModal />
+
+    <!-- Mobile Quick Call / WhatsApp Sticky Bar -->
+    <WhatsAppSticky />
+
+    <!-- Lightweight Zero-Jank Native Scroll Reveal -->
+    <script>
+      if (typeof window !== 'undefined') {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -40px 0px', threshold: 0.05 }
+        );
+
+        // Auto-detect and register content blocks for smooth fade-up entrance
+        const contentSelectors = [
+          '.neera-reveal',
+          '.reveal-on-scroll',
+          '.fade-up',
+          'section > .max-w-\\[1280px\\]',
+          'section > div > .text-center',
+          '.grid > div',
+          '.flash-frame',
+          '.neera-card',
+          'article'
+        ];
+
+        const animatedElements = new Set();
+        document.querySelectorAll(contentSelectors.join(', ')).forEach((el) => {
+          if (!el.closest('#bookingModal') && !el.closest('nav') && !el.closest('header') && !el.closest('.floating-bounce-bar')) {
+            animatedElements.add(el);
+          }
+        });
+
+        // Add subtle cascade stagger to grid items
+        document.querySelectorAll('.grid').forEach((grid) => {
+          const children = Array.from(grid.children);
+          children.forEach((child, index) => {
+            if (animatedElements.has(child)) {
+              const delay = (index % 4) * 90;
+              if (delay > 0) {
+                child.style.transitionDelay = `${delay}ms`;
+              }
+            }
+          });
+        });
+
+        animatedElements.forEach((el) => {
+          el.classList.add('fade-up-element');
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            requestAnimationFrame(() => {
+              setTimeout(() => {
+                el.classList.add('is-revealed');
+              }, 60);
+            });
+          } else {
+            observer.observe(el);
+          }
+        });
+
+        // Exclusive Accordion: when one details opens, close others
+        document.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          const summary = target.closest('summary');
+          if (!summary) return;
+          const details = summary.parentElement as HTMLDetailsElement;
+          if (!details || details.tagName !== 'DETAILS') return;
+          const groupName = details.getAttribute('name');
+          if (!groupName) return;
+
+          // If it was closed and is about to open:
+          if (!details.open) {
+            document.querySelectorAll(`details[name="${groupName}"]`).forEach((other) => {
+              if (other !== details) {
+                (other as HTMLDetailsElement).open = false;
+              }
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

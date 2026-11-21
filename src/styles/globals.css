@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+/* =========================================================================
+   LUXURY AWWWARDS / PINTEREST MARINE UI ANIMATIONS & EFFECTS
+   ========================================================================= */
+
+/* Continuous Flash / Shimmer Sheen Sweep on Hover */
+.flash-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.flash-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 80%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 20;
+}
+.flash-sheen:hover::after {
+  transform: translate(320%, 0) rotate(25deg);
+}
+
+/* Dark Card Flash Sheen (Gold/Emerald Tint) */
+.flash-sheen-gold {
+  position: relative;
+  overflow: hidden;
+}
+.flash-sheen-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 80%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(212, 175, 55, 0.3) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 20;
+}
+.flash-sheen-gold:hover::after {
+  transform: translate(320%, 0) rotate(25deg);
+}
+
+/* Continuous Infinite Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Luminous Ambient Glow Orbs */
+@keyframes ambientPulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.45; }
+  50% { transform: scale(1.18) translate(15px, -15px); opacity: 0.75; }
+}
+.animate-ambient-pulse {
+  animation: ambientPulse 9s ease-in-out infinite;
+}
+
+/* Subtle Floating Animation */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* =========================================================================
+   NEERA THEME SIGNATURE CONTOUR & MARINE TEXTURES
+   ========================================================================= */
+
+.bg-neera-contour-lines {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 40 50 50 T100 50 M0 25 Q25 15 50 25 T100 25 M0 75 Q25 65 50 75 T100 75' fill='none' stroke='%23b19d7f' stroke-width='0.5' stroke-opacity='0.22'/%3E%3C/svg%3E");
+}
+
+.bg-neera-navy-waves {
+  background-color: #06192e;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C30 45 60 75 120 60 C90 75 60 45 0 60 Z' fill='none' stroke='%23ffffff' stroke-width='0.75' stroke-opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.bg-neera-sand-waves {
+  background-color: #faf9f5;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C30 45 60 75 120 60 C90 75 60 45 0 60 Z' fill='none' stroke='%23b19d7f' stroke-width='0.75' stroke-opacity='0.22'/%3E%3C/svg%3E");
+}
+
+/* =========================================================================
+   PRIMARY DISPLAY FONT: El Messiri / El Messin
+   ========================================================================= */
+
+@font-face {
+  font-family: 'El Messiri';
+  src: local('El Messiri'),
+       local('ElMessiri'),
+       local('El Messin'),
+       url('/fonts/ElMessiri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'El Messiri';
+  src: local('El Messiri SemiBold'),
+       local('ElMessiri-SemiBold'),
+       url('/fonts/ElMessiri-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'El Messiri';
+  src: local('El Messiri Bold'),
+       local('ElMessiri-Bold'),
+       url('/fonts/ElMessiri-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'El Messin';
+  src: local('El Messiri'),
+       local('ElMessiri'),
+       local('El Messin'),
+       url('/fonts/ElMessiri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'El Messin';
+  src: local('El Messiri Bold'),
+       local('ElMessiri-Bold'),
+       url('/fonts/ElMessiri-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* System-wide primary font override */
+.font-marcellus,
+.font-serif,
+.font-display,
+.font-el-messiri,
+h1,
+h2,
+h3,
+h4,
+h1.font-marcellus,
+h2.font-marcellus,
+h3.font-marcellus,
+h4.font-marcellus {
+  font-family: 'El Messiri', 'El Messin', sans-serif !important;
+}
+
+/* =========================================================================
+   SCROLLBAR UTILITIES (Zero accidental vertical or horizontal bars)
+   ========================================================================= */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+
+
+

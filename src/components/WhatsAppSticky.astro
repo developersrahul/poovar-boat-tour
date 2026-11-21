@@ -1,0 +1,58 @@
+---
+const phoneNumber = '+917902291301';
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Poovar%20Boat%20Tour,%20I%20would%20like%20to%20enquire%20about%20a%20backwater%20boat%20ride.`;
+---
+
+<!-- Mobile Floating Quick Contact Bar with Very Light Subtle Bounce -->
+<div class="fixed bottom-4 left-4 right-4 z-40 lg:hidden flex items-center gap-2.5 max-w-md mx-auto pointer-events-auto floating-bounce-bar">
+  <!-- Call Direct (Deep Navy with Brand Sand/Bronze Accent & 7px radius) -->
+  <a
+    href={`tel:${phoneNumber}`}
+    class="flex-1 bg-[#06192e] hover:bg-[#08233d] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-[7px] shadow-[0_10px_25px_rgba(6,25,46,0.35)] flex items-center justify-center gap-2 border border-[#b19d7f]/45 transition-all duration-300 active:scale-95 group"
+    aria-label="Call Poovar Boat Tour Direct"
+  >
+    <i class="ph-bold ph-phone text-[#b19d7f] group-hover:scale-110 text-base transition-transform"></i>
+    <span>Call Direct</span>
+  </a>
+
+  <!-- WhatsApp (Website Brand Bronze Button with 7px radius) -->
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex-1 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-[7px] shadow-[0_10px_25px_rgba(177,157,127,0.35)] flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 border border-[#b19d7f] group"
+    aria-label="Chat with Poovar Boat Tour on WhatsApp"
+  >
+    <i class="ph-bold ph-whatsapp-logo text-white group-hover:scale-110 text-base transition-transform"></i>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<style>
+  /* Very light subtle floating movement bounce */
+  @keyframes lightBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .floating-bounce-bar {
+    animation: lightBounce 2.8s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .floating-bounce-bar:hover,
+  .floating-bounce-bar:active,
+  .floating-bounce-bar:focus-within {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .floating-bounce-bar {
+      animation: none;
+    }
+  }
+</style>

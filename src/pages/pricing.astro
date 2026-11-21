@@ -1,0 +1,1310 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+
+import PoovarLiveStatus from '../components/PoovarLiveStatus';
+
+import CruiseCalculator from '../components/CruiseCalculator';
+
+import BackwaterRouteExplorer from '../components/BackwaterRouteExplorer';
+
+import GuestReviews from '../components/GuestReviews';
+
+
+
+// Exact SEO Metadata from PDF
+
+const pageTitle = "Poovar Boating Price & Packages | Poovar Boat Tour";
+
+const pageDescription = "Check Poovar boating price, ticket charges and packages for every cruise with Poovar Boat Tour. Clear rates, easy online booking.";
+
+
+
+const pricingTable = [
+
+  {
+
+    num: "01",
+
+    cruise: "Motor Boat Cruise",
+
+    length: "2 Hours",
+
+    price: "Rs 1,200",
+
+    capacity: "Up to 7 people",
+
+    image: "/images/services/motor_boat_cruise.webp",
+
+    desc: "Our primary backwater cruise through quiet canals, mangrove root canopies, and the river-meets-sea estuary.",
+
+    highlights: ["Mangrove Root Tunnels", "Estuary Confluence", "Golden Sand Beach"]
+
+  },
+
+  {
+
+    num: "02",
+
+    cruise: "Sunset Cruise",
+
+    length: "2 hours",
+
+    price: "Rs 1,200",
+
+    capacity: "Up to 7 people",
+
+    image: "/images/services/sunset_cruise.webp",
+
+    desc: "Golden-hour backwater journey timed from 5:00 PM to 6:30 PM for cooler air and glowing coastal light.",
+
+    highlights: ["5:00 PM – 6:30 PM Timing", "Golden Coastal Light", "Cool Evening Breeze"]
+
+  },
+
+  {
+
+    num: "03",
+
+    cruise: "Honeymoon Cruise",
+
+    length: "2 Hours",
+
+    price: "Rs 1,200",
+
+    capacity: "Private Couple",
+
+    image: "/images/services/honeymoon_cruise.webp",
+
+    desc: "Quiet private boat ride for couples through secluded canals and mangrove passages with complete privacy.",
+
+    highlights: ["Complete Couple Privacy", "Secluded Canals", "Romantic Estuary View"]
+
+  },
+
+  {
+
+    num: "04",
+
+    cruise: "Bird Watching Cruise",
+
+    length: "2 Hours",
+
+    price: "Rs 1,200",
+
+    capacity: "Up to 7 people",
+
+    image: "/images/services/bird_watching_cruise.webp",
+
+    desc: "Slow-paced early morning backwater safari to spot kingfishers, egrets, herons, and wetland wildlife.",
+
+    highlights: ["Early Morning Safari", "Kingfishers & Egrets", "Silent Native Navigation"]
+
+  },
+
+  {
+
+    num: "05",
+
+    cruise: "Taxi Service",
+
+    length: "Flexible",
+
+    price: "Ask for quote",
+
+    capacity: "Sedan / SUV",
+
+    image: "/images/services/taxi_tourist_service.webp",
+
+    desc: "Doorstep airport/railway transfers and combined sightseeing trips to Kovalam, Kanyakumari, and Trivandrum.",
+
+    highlights: ["Airport / Rail Transfers", "Kovalam & Kanyakumari", "Doorstep Pick & Drop"]
+
+  }
+
+];
+
+
+
+const pricingFaqs = [
+
+  {
+
+    num: "01",
+
+    q: "1. How much does a Poovar boat ride cost?",
+
+    a: "A Poovar Boat Tour ride costs Rs 1,200 per boat for a 2-hour ride. One boat carries up to 7 people, so a group shares one price."
+
+  },
+
+  {
+
+    num: "02",
+
+    q: "2. What is the Poovar boating ticket price per person?",
+
+    a: "Poovar Boat Tour prices rides per boat, not per person. A full boat of 7 people works out to about Rs 170 each, and a couple pays Rs 600 each."
+
+  },
+
+  {
+
+    num: "03",
+
+    q: "3. Is the Poovar boating price per boat or per person?",
+
+    a: "The Poovar Boat Tour price is per boat, for up to 7 people. You book the whole boat, so a smaller group pays the same price."
+
+  },
+
+  {
+
+    num: "04",
+
+    q: "4. Are there any hidden charges for Poovar boating?",
+
+    a: "We tell you the price per boat before you book, so you know what you pay. Ask us if you have any question about the price before you confirm."
+
+  },
+
+  {
+
+    num: "05",
+
+    q: "5. How can I avoid being overcharged at Poovar?",
+
+    a: "Ask for the price per boat and the ride length before boarding, and book directly with an operator such as Poovar Boat Tour. Keep your booking confirmation."
+
+  },
+
+  {
+
+    num: "06",
+
+    q: "6. Is there a discount for groups or families?",
+
+    a: "Poovar Boat Tour prices by the boat, so a full group of 7 shares one rate. This already makes a family or group ride good value per person."
+
+  },
+
+  {
+
+    num: "07",
+
+    q: "7. What is the price of the 1-hour ride and the 2-hour ride?",
+
+    a: "The standard 2-hour ride is Rs 1,200 per boat. If you want a shorter 1-hour ride, ask us for the price when you book."
+
+  },
+
+  {
+
+    num: "08",
+
+    q: "8. Does the price include life jackets and a boat driver?",
+
+    a: "Yes, the price includes the boat, a boat driver and life jackets for your group. Please wear your life jacket during the ride."
+
+  },
+
+  {
+
+    num: "09",
+
+    q: "9. What payment methods does Poovar Boat Tour accept?",
+
+    a: "You can pay at the boarding point. Ask us about UPI or other online payment when you book your ride."
+
+  },
+
+  {
+
+    num: "10",
+
+    q: "10. Is there an online booking offer?",
+
+    a: "Our online booking price is Rs 1,200 per boat for up to 7 people. Ask us about any current offer when you book."
+
+  }
+
+];
+
+
+
+const pricingSchema = {
+
+  "@context": "https://schema.org",
+
+  "@graph": [
+
+    {
+
+      "@type": "WebPage",
+
+      "@id": "https://poovarboattour.com/pricing/#webpage",
+
+      "url": "https://poovarboattour.com/pricing/",
+
+      "name": "Poovar Boating Price and Packages",
+
+      "isPartOf": { "@id": "https://poovarboattour.com/#website" },
+
+      "about": { "@id": "https://poovarboattour.com/services/#motor-boat-cruise" }
+
+    },
+
+    {
+
+      "@type": "BreadcrumbList",
+
+      "itemListElement": [
+
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poovarboattour.com/" },
+
+        { "@type": "ListItem", "position": 2, "name": "Pricing and Packages", "item": "https://poovarboattour.com/pricing/" }
+
+      ]
+
+    }
+
+  ]
+
+};
+
+---
+
+
+
+<Layout
+
+  title={pageTitle}
+
+  description={pageDescription}
+
+  canonicalUrl="https://poovarboattour.com/pricing/"
+
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+
+
+
+  <!-- =====================================================================
+
+       1. HERO SECTION: 90vh Deep Navy & Sand Bronze Tracking
+
+       ===================================================================== -->
+
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] sm:h-[90vh] w-full flex flex-col justify-center items-center bg-neera-navy-waves bg-[#06192e] text-white pt-36 sm:pt-28 pb-16 sm:pb-12 overflow-hidden border-b border-white/10">
+
+    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+
+      
+
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+
+        <i class="ph-fill ph-tag text-[#b19d7f]"></i> TRANSPARENT FIXED RATES • DIRECT JETTY PRICE
+
+      </span>
+
+
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-marcellus text-white uppercase tracking-[0.14em] leading-tight max-w-5xl mx-auto">
+
+        Poovar Boating Price and Packages
+
+      </h1>
+
+
+
+      <p class="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
+
+        Check Poovar boating price, ticket charges and packages for every cruise with Poovar Boat Tour. Clear rates, easy online booking.
+
+      </p>
+
+
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono uppercase tracking-widest text-[#b19d7f]">
+
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-users text-[#b19d7f]"></i> Up to 7 People per Boat</span>
+
+        <span>•</span>
+
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-clock text-[#b19d7f]"></i> 2 Hours Standard Ride</span>
+
+        <span>•</span>
+
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-shield-check text-[#b19d7f]"></i> Life Jackets &amp; Driver Included</span>
+
+      </div>
+
+
+
+      <!-- Downward scroll cue -->
+
+      <div class="pt-8 flex justify-center">
+
+        <a href="#rates-breakdown" class="text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs font-mono uppercase tracking-widest transition">
+
+          <span>Explore Pricing &amp; Packages</span>
+
+          <i class="ph-bold ph-arrow-down text-sm animate-bounce text-[#b19d7f]"></i>
+
+        </a>
+
+      </div>
+
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================================
+
+       AWWWARDS-INSPIRED EDITORIAL PRICING SPREAD (Zero rigid boxes!)
+
+       ===================================================================== -->
+
+  <main id="rates-breakdown" class="relative bg-[#faf9f5] text-[#0d0d0d] overflow-hidden">
+
+    
+
+    <!-- Live Boating Conditions & Golden Hour Banner -->
+
+    <section class="border-b border-[#ede8e1]">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <PoovarLiveStatus client:load />
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 1: THE FLAT RATE MANIFESTO (Oversized Editorial Typography)
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          
+
+          <!-- Left: Narrative & Per-Person Breakdown Track -->
+
+          <div class="lg:col-span-7 space-y-8">
+
+            <div class="space-y-3">
+
+              <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+
+                FLAT TRANSPARENT PRICING • DIRECT JETTY RATE
+
+              </span>
+
+              <h2 class="text-3xl sm:text-5xl lg:text-6xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] leading-tight">
+
+                Poovar Boating Price: <span class="text-[#b19d7f]">Rs 1,200</span> Per Boat
+
+              </h2>
+
+            </div>
+
+
+
+            <div class="space-y-4 text-base sm:text-lg text-gray-700 font-light leading-relaxed">
+
+              <p>
+
+                The Poovar Boat Tour price is Rs 1,200 per boat for a 2-hour ride. One boat carries up to 7 people, so the cost is shared across your group.
+
+              </p>
+
+              <p class="text-sm sm:text-base text-gray-600">
+
+                There is one rate for the boat, not a price for each person. A full boat of 7 works out to about Rs 170 per person, and a couple booking a boat for themselves pays Rs 600 each.
+
+              </p>
+
+            </div>
+
+
+
+            <!-- Sleek Horizontal Rate Track with Hairline Dividers -->
+
+            <div class="pt-4 border-t border-[#ede8e1]">
+
+              <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block mb-4">
+
+                TRANSPARENT PER-PERSON CALCULATION:
+
+              </span>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-[#ede8e1]">
+
+                <div class="pt-3 sm:pt-0 sm:px-3 first:pl-0">
+
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">Rs 1,200</span>
+
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Whole Boat (1-7 Pax)</span>
+
+                </div>
+
+                <div class="pt-3 sm:pt-0 sm:px-3">
+
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#b19d7f] font-bold block">~Rs 170</span>
+
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Per Head (7 Pax)</span>
+
+                </div>
+
+                <div class="pt-3 sm:pt-0 sm:px-3">
+
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">~Rs 300</span>
+
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Per Head (4 Pax)</span>
+
+                </div>
+
+                <div class="pt-3 sm:pt-0 sm:px-3 last:pr-0">
+
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">Rs 600</span>
+
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Per Head (Couple)</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Direct Actions -->
+
+            <div class="pt-4 flex flex-wrap items-center gap-4">
+
+              <button
+
+                type="button"
+
+                onclick="openBookingModal('Pricing Page: Rs 1,200 per boat')"
+
+                class="px-8 py-4 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.2em] rounded-[7px] transition-all duration-300 shadow-xl cursor-pointer"
+
+              >
+
+                Book Now at Rs 1,200
+
+              </button>
+
+              <a
+
+                href="tel:+917902291301"
+
+                class="px-8 py-4 bg-white hover:bg-[#faf9f5] text-[#06192e] font-bold text-xs uppercase tracking-[0.2em] rounded-[7px] border border-[#ede8e1] transition-all duration-300 shadow-sm flex items-center gap-2"
+
+              >
+
+                <i class="ph-bold ph-phone text-[#b19d7f]"></i> Call +91 79022 91301
+
+              </a>
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <!-- Right: Visual Editorial Atmosphere (Authentic 7-Pax Safari Motor Boat) -->
+
+          <div class="lg:col-span-5 relative">
+
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-[#b19d7f]/30 group">
+
+              <img
+
+                src="/images/poovar_backwaters_boat_cruise.webp"
+
+                alt="Poovar Backwaters Boat Cruise - Flat Rs 1,200 for up to 7 People"
+
+                loading="lazy"
+
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+
+              />
+
+              <div class="absolute inset-0 bg-gradient-to-t from-[#06192e]/90 via-[#06192e]/30 to-transparent"></div>
+
+              
+
+              <div class="absolute top-5 left-5 bg-[#06192e]/95 text-[#c9b79b] border border-[#b19d7f]/40 px-4 py-2 rounded-[7px] text-[10px] font-mono uppercase tracking-widest shadow-xl flex items-center gap-2">
+
+                <span class="w-2 h-2 rounded-[7px] bg-[#b19d7f] animate-pulse"></span>
+
+                <span>Fixed Direct Jetty Tariff</span>
+
+              </div>
+
+
+
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
+
+                <div class="flex items-center gap-2 mb-1">
+
+                  <span class="inline-block px-2 py-0.5 bg-[#b19d7f] text-[#06192e] text-[9px] font-bold uppercase tracking-[0.15em] rounded-[7px]">
+
+                    7 PAX CAPACITY
+
+                  </span>
+
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f]">
+
+                    POOVAR BACKWATERS CRUISE
+
+                  </span>
+
+                </div>
+
+                <span class="text-xs font-mono uppercase tracking-widest text-white block font-bold">
+
+                  2 Full Hours on the Water
+
+                </span>
+
+                <p class="text-xs sm:text-sm text-white/95 font-light leading-relaxed">
+
+                  Includes professional boat pilot, safety life jackets for every passenger, and complete estuary circuit.
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- Interactive Instant Tariff & Package Estimator -->
+
+    <section class="py-16 sm:py-24 border-b border-[#ede8e1] bg-white">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        <CruiseCalculator client:load />
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 2: EDITORIAL PRICE TABLE (Editorial List View - Zero Rigid Box Grids)
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        
+
+        <!-- Header -->
+
+        <div class="max-w-3xl space-y-3">
+
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+
+            COMPLETE TARIFF &amp; PACKAGES
+
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+
+            Price Table
+
+          </h2>
+
+          <p class="text-base text-gray-600 font-light leading-relaxed">
+
+            All four cruises are charged at one standard flat price per boat for up to 7 guests.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- Editorial Horizontal Cruise Spreads with Hairline Dividers & Large Images -->
+
+        <div class="divide-y divide-[#ede8e1] border-y border-[#ede8e1]">
+
+          {pricingTable.map((item) => (
+
+            <div class="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center group">
+
+              
+
+              <!-- Num & Large High-Res Image Preview -->
+
+              <div class="lg:col-span-5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
+
+                <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold w-10 flex-shrink-0">
+
+                  {item.num}
+
+                </span>
+
+                <div class="relative w-full sm:w-64 md:w-72 lg:w-80 h-48 sm:h-52 md:h-56 flex-shrink-0 overflow-hidden rounded-[7px] border border-[#ede8e1] shadow-md group-hover:shadow-xl transition-all duration-500 flash-frame">
+
+                  <img
+
+                    src={item.image}
+
+                    alt={item.cruise}
+
+                    loading="lazy"
+
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+
+                  />
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono">
+
+                    <span class="bg-[#06192e]/85 backdrop-blur-sm px-2.5 py-1 rounded-[7px] text-[#b19d7f] border border-white/10 font-bold">
+
+                      {item.capacity}
+
+                    </span>
+
+                    <span class="bg-[#b19d7f] text-white px-2.5 py-1 rounded-[7px] font-bold">
+
+                      {item.length}
+
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Cruise Narrative & Highlights -->
+
+              <div class="lg:col-span-4 space-y-3">
+
+                <h3 class="font-marcellus text-2xl sm:text-3xl text-[#06192e] uppercase tracking-wide group-hover:text-[#b19d7f] transition-colors">
+
+                  {item.cruise}
+
+                </h3>
+
+                <p class="text-sm sm:text-base text-gray-700 font-light leading-relaxed">
+
+                  {item.desc}
+
+                </p>
+
+                <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-mono text-gray-500">
+
+                  {item.highlights.map((tag) => (
+
+                    <span class="px-2.5 py-1 bg-white border border-[#ede8e1] rounded-[7px]">
+
+                      {tag}
+
+                    </span>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Price & Booking CTA -->
+
+              <div class="lg:col-span-3 flex lg:flex-col items-center lg:items-end justify-between gap-4">
+
+                <div class="text-left lg:text-right">
+
+                  <span class="font-marcellus text-2xl sm:text-4xl text-[#06192e] font-bold block">
+
+                    {item.price}
+
+                  </span>
+
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">
+
+                    {item.length} • Per Boat
+
+                  </span>
+
+                </div>
+
+                <button
+
+                  type="button"
+
+                  onclick={`openBookingModal('Pricing Table: ${item.cruise}')`}
+
+                  class="px-7 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.18em] rounded-[7px] transition-all duration-300 shadow-md cursor-pointer whitespace-nowrap"
+
+                >
+
+                  Book Ride &rarr;
+
+                </button>
+
+              </div>
+
+
+
+            </div>
+
+          ))}
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 3: TWO-TONE SPREAD: WHAT IS INCLUDED & AVOIDING OVERCHARGING
+
+         Seamless contrast between Sand Oat & Midnight Navy (Zero rigid boxes)
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+
+          
+
+          <!-- Column A: What Is Included (Sand Oat Editorial) -->
+
+          <div class="lg:col-span-6 p-8 sm:p-12 rounded-[7px] bg-[#faf9f5] border border-[#ede8e1] flex flex-col justify-between space-y-6">
+
+            <div class="space-y-4">
+
+              <div class="w-12 h-12 rounded-[7px] bg-[#06192e] text-[#b19d7f] flex items-center justify-center text-xl shadow-md">
+
+                <i class="ph-bold ph-check-circle"></i>
+
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] leading-snug">
+
+                What Is Included
+
+              </h3>
+
+              <p class="text-base text-gray-700 leading-relaxed font-light">
+
+                The price covers the boat ride with a boat driver and life jackets for your group. The price is for the boat, so every guest on board is included, up to 7 people.
+
+              </p>
+
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+
+                The taxi service is priced separately because it depends on the distance and the places you want to see. Ask us for the taxi price when you book your ride.
+
+              </p>
+
+            </div>
+
+
+
+            <div class="pt-6 border-t border-[#ede8e1] flex flex-wrap gap-2 text-xs font-semibold text-[#06192e]">
+
+              <span class="px-3 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] flex items-center gap-1.5">
+
+                <i class="ph-bold ph-steering-wheel text-[#b19d7f]"></i> Licensed Boat Driver
+
+              </span>
+
+              <span class="px-3 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] flex items-center gap-1.5">
+
+                <i class="ph-bold ph-lifebuoy text-[#b19d7f]"></i> 100% Life Jackets Adherent
+
+              </span>
+
+              <span class="px-3 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] flex items-center gap-1.5">
+
+                <i class="ph-bold ph-users text-[#b19d7f]"></i> Max 7 Passengers
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Column B: How to Avoid Being Overcharged (Midnight Ocean Navy) -->
+
+          <div class="lg:col-span-6 p-8 sm:p-12 rounded-[7px] bg-[#06192e] text-white border border-[#b19d7f]/30 flex flex-col justify-between space-y-6 shadow-2xl relative overflow-hidden">
+
+            <div class="space-y-4 relative z-10">
+
+              <div class="w-12 h-12 rounded-[7px] bg-white/10 text-[#b19d7f] flex items-center justify-center text-xl border border-white/15">
+
+                <i class="ph-bold ph-shield-check"></i>
+
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-marcellus text-white uppercase tracking-[0.10em] leading-snug">
+
+                How to Avoid Being Overcharged at Poovar
+
+              </h3>
+
+              <p class="text-base text-white/90 leading-relaxed font-light">
+
+                Before you board any boat in Poovar, ask for the price per boat and the length of the ride, and keep your booking confirmation.
+
+              </p>
+
+              <p class="text-sm text-white/80 leading-relaxed font-light">
+
+                Booking directly with an operator such as Poovar Boat Tour keeps the price clear. Ask us for the price in writing through the booking form or by message.
+
+              </p>
+
+            </div>
+
+
+
+            <div class="pt-6 border-t border-white/15 relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-white/80">
+
+              <span class="flex items-center gap-1.5 text-[#b19d7f] font-semibold">
+
+                <i class="ph-bold ph-lock-key"></i> Direct Jetty Fixed Rate Guarantee
+
+              </span>
+
+              <span class="text-white/60 font-mono">No Middleman Markups</span>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 4: TRANSPARENCY GUIDE (Horizontal 4-Column Timeline)
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        
+
+        <div class="max-w-3xl space-y-3">
+
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+
+            CLEAR ADVICE &amp; OPERATOR STANDARDS
+
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+
+            Pricing Guide &amp; Safety FAQs
+
+          </h2>
+
+        </div>
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-[#ede8e1]">
+
+          
+
+          <div class="pt-6 md:pt-0 md:px-6 first:pl-0 space-y-3">
+
+            <span class="text-3xl font-marcellus text-[#b19d7f] font-bold block">01</span>
+
+            <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block">Pricing Variations</span>
+
+            <h4 class="font-marcellus text-lg text-[#06192e] leading-snug">
+
+              Why Do Poovar Boat Prices Differ Between Operators?
+
+            </h4>
+
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+
+              Prices differ because of the ride length, the type of boat, the group size and what is included. Ask for the price per boat and the length of the ride before you book. Our price is simple: Rs 1,200 per boat for up to 7 people.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="pt-6 md:pt-0 md:px-6 space-y-3">
+
+            <span class="text-3xl font-marcellus text-[#b19d7f] font-bold block">02</span>
+
+            <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block">Booking Channels</span>
+
+            <h4 class="font-marcellus text-lg text-[#06192e] leading-snug">
+
+              Is It Cheaper to Book Poovar Boating Directly or Through an Agent?
+
+            </h4>
+
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+
+              Booking directly with the boat operator is usually cheaper, because there is no agent commission added to the price. You also deal with the people who run the boat. Poovar Boat Tour takes bookings directly by phone and online.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="pt-6 md:pt-0 md:px-6 space-y-3">
+
+            <span class="text-3xl font-marcellus text-[#b19d7f] font-bold block">03</span>
+
+            <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block">Advance Quotes</span>
+
+            <h4 class="font-marcellus text-lg text-[#06192e] leading-snug">
+
+              Can I Get a Price Quote by Phone or Online?
+
+            </h4>
+
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+
+              Yes, you can get a quote from Poovar Boat Tour through the booking form or by phone. Tell us the date, the number of people and the cruise you want. We will confirm the price before your ride.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="pt-6 md:pt-0 md:px-6 last:pr-0 space-y-3">
+
+            <span class="text-3xl font-marcellus text-[#b19d7f] font-bold block">04</span>
+
+            <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block">Safety Standards</span>
+
+            <h4 class="font-marcellus text-lg text-[#06192e] leading-snug">
+
+              Is a Cheaper Poovar Boat Ride Less Safe?
+
+            </h4>
+
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+
+              Not always, but check the basics before you board any boat: a trained driver, life jackets and a clear price. Safety matters more than saving a few rupees. Ask the operator about these points before you pay.
+
+            </p>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- Interactive 6-Stop Sightseeing Route Guide -->
+
+    <section class="py-16 sm:py-24 border-b border-[#ede8e1] bg-white">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        <BackwaterRouteExplorer client:visible />
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 5: ABOUT OUR ONLINE PRICE BANNER
+
+         ===================================================================== -->
+
+    <section class="py-16 sm:py-20 bg-neera-navy-waves bg-[#06192e] text-white border-b border-white/10">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+
+          <div class="space-y-3 max-w-2xl">
+
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+
+              <i class="ph-fill ph-check-shield text-[#b19d7f]"></i> Online Rate Confirmation
+
+            </span>
+
+            <h3 class="text-2xl sm:text-4xl font-marcellus text-white uppercase tracking-[0.10em]">
+
+              About Our Online Price
+
+            </h3>
+
+            <p class="text-sm sm:text-base text-white/85 font-light leading-relaxed">
+
+              Our online booking price is Rs 1,200 per boat for up to 7 people. Ask us about any current offer when you book.
+
+            </p>
+
+          </div>
+
+          <div class="flex-shrink-0">
+
+            <a
+
+              href="/contact/"
+
+              class="inline-block px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold text-xs uppercase tracking-[0.2em] rounded-[7px] transition-all duration-300 shadow-xl"
+
+            >
+
+              Book Now at This Price
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 6: 10 PRICING FAQS (Seamless Borderless Accordion List)
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+
+      <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        
+
+        <div class="text-center space-y-3">
+
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+
+            COMMON QUESTIONS • TARIFF &amp; PAYMENT
+
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+
+            Pricing Frequently Asked Questions
+
+          </h2>
+
+        </div>
+
+
+
+        <!-- Borderless Hairline Accordion List -->
+
+        <div class="divide-y divide-[#ede8e1] border-y border-[#ede8e1]">
+
+          {pricingFaqs.map((faq) => (
+
+            <details name="exclusive-pricing-faq" class="group py-6 transition-all duration-300 cursor-pointer">
+
+              <summary class="flex items-center justify-between gap-6 list-none font-marcellus text-lg sm:text-xl text-[#06192e] group-open:text-[#b19d7f] transition-colors select-none">
+
+                <span class="flex items-center gap-4">
+
+                  <span class="text-xs font-mono text-[#b19d7f] font-bold">{faq.num}</span>
+
+                  <span>{faq.q.replace(/^\d+\.\s*/, '')}</span>
+
+                </span>
+
+                <span class="w-8 h-8 rounded-[7px] bg-white border border-[#ede8e1] group-open:border-[#b19d7f] flex items-center justify-center text-sm font-bold text-[#06192e] group-open:text-[#b19d7f] flex-shrink-0 transition-all duration-300">
+
+                  <span class="group-open:hidden">+</span>
+
+                  <span class="hidden group-open:inline">−</span>
+
+                </span>
+
+              </summary>
+
+              <div class="pt-4 pl-8 sm:pl-10 text-sm sm:text-base text-gray-700 font-light leading-relaxed pr-4">
+
+                <p>{faq.a}</p>
+
+              </div>
+
+            </details>
+
+          ))}
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- Verified Guest Reviews & Ratings -->
+
+    <section class="py-16 sm:py-24 border-b border-[#ede8e1] bg-white">
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        <GuestReviews client:visible />
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================================
+
+         SECTION 7: FINAL BOOKING CTA BANNER
+
+         ===================================================================== -->
+
+    <section class="py-20 lg:py-28 bg-neera-navy-waves bg-[#06192e] text-white border-t border-white/10">
+
+      <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-xs font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+
+          <i class="ph-fill ph-boat text-[#b19d7f]"></i> RESERVE YOUR CRUISE
+
+        </span>
+
+        <h2 class="text-3xl sm:text-5xl font-marcellus text-white uppercase tracking-[0.12em]">
+
+          Book at This Price
+
+        </h2>
+
+        <p class="text-base sm:text-lg text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
+
+          Lock in your standard 2-hour Poovar backwater cruise at Rs 1,200 per boat for up to 7 guests.
+
+        </p>
+
+        <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+
+          <a
+
+            href="/contact/"
+
+            class="px-9 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl"
+
+          >
+
+            Book Now
+
+          </a>
+
+          <a
+
+            href="tel:+917902291301"
+
+            class="px-9 py-4 bg-white/10 hover:bg-white/20 text-white rounded-[7px] transition border border-white/20 flex items-center gap-2"
+
+          >
+
+            <i class="ph-bold ph-phone text-[#b19d7f]"></i> Call +91 79022 91301
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+  </main>
+
+</Layout>
+

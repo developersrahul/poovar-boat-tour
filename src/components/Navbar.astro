@@ -1,0 +1,11 @@
+---
+import { Header } from './ui/header-1';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+---
+
+<Header client:load currentPath={currentPath} />

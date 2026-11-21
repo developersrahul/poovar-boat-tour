@@ -1,0 +1,952 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Exact SEO Metadata from PDF (Page 1)
+const pageTitle = "Poovar Boat Service | Backwater Boating Cruises";
+const pageDescription = "Poovar boat service with motor boat, sunset, honeymoon and bird watching cruises on the Poovar backwaters. Book your cruise online.";
+
+// Exact 10 FAQs from PDF (Pages 3-4)
+const servicesFaqs = [
+  {
+    num: "01",
+    q: "1. What types of boat rides are available in Poovar?",
+    a: "Poovar Boat Tour offers four boat rides: a motor boat backwater cruise, a sunset cruise, a honeymoon cruise and a bird watching cruise, each on the Poovar backwaters."
+  },
+  {
+    num: "02",
+    q: "2. What is the Poovar backwater cruise?",
+    a: "The Poovar backwater cruise is a boat ride through the canals, mangroves and estuary of Poovar in Kerala, where the river meets the Arabian Sea."
+  },
+  {
+    num: "03",
+    q: "3. What places are covered on the Poovar boat ride?",
+    a: "The ride passes through Poovar's backwaters and mangroves toward the sea mouth and the golden sand beach. The exact stops depend on the tide and your boat driver."
+  },
+  {
+    num: "04",
+    q: "4. Can I choose the time of my boat ride?",
+    a: "Yes, tell us your date and the time you prefer, and we will confirm a boat for you. Early morning and late afternoon are the most popular times."
+  },
+  {
+    num: "05",
+    q: "5. What is the best time for sunset boating in Poovar?",
+    a: "The best time for sunset boating in Poovar is the hour before sunset, when the light is soft and the water is calm."
+  },
+  {
+    num: "06",
+    q: "6. What time does the Poovar sunset cruise start?",
+    a: "The Poovar Boat Tour sunset cruise starts around 5:00 PM and runs until about 6:30 PM. Sunset time changes through the year, so check the time for your date when you book."
+  },
+  {
+    num: "07",
+    q: "7. Which is the best boat ride in Poovar for couples?",
+    a: "The honeymoon cruise is the best Poovar boat ride for couples. You book the whole boat, so the ride is private for you and your partner, at Rs 1,200 per boat for the 2-hour ride."
+  },
+  {
+    num: "08",
+    q: "8. Can I book a private boat in Poovar?",
+    a: "Yes, you can book a private boat with Poovar Boat Tour for your own group. You book the whole boat, which carries up to 7 people, at Rs 1,200 for the 2-hour ride."
+  },
+  {
+    num: "09",
+    q: "9. Is Poovar good for bird watching?",
+    a: "Yes, Poovar's mangroves and backwaters attract water birds, so the early morning cruise suits bird watchers. Your boat driver can help you spot them."
+  },
+  {
+    num: "10",
+    q: "10. Which birds can be seen in Poovar?",
+    a: "You may see kingfishers, herons and egrets along the Poovar backwaters. Early morning is usually the best time to see them."
+  }
+];
+
+// Exact Services Schema from PDF
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poovarboattour.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://poovarboattour.com/services/" }
+      ]
+    },
+    {
+      "@type": "TouristTrip",
+      "@id": "https://poovarboattour.com/services/#motor-boat-cruise",
+      "name": "Poovar Motor Boat Cruise",
+      "description": "A motor boat ride through the backwaters and mangroves of Poovar, Kerala, where the Neyyar River meets the Arabian Sea.",
+      "touristType": "Families, couples and friends",
+      "provider": { "@id": "https://poovarboattour.com/#business" },
+      "offers": {
+        "@type": "Offer",
+        "price": "1200",
+        "priceCurrency": "INR",
+        "description": "Per boat, up to 7 people",
+        "url": "https://poovarboattour.com/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "TouristTrip",
+      "@id": "https://poovarboattour.com/services/#sunset-cruise",
+      "name": "Poovar Sunset Cruise",
+      "description": "An evening boat ride on the Poovar backwaters, timed for the soft light before sunset.",
+      "touristType": "Couples, families and photographers",
+      "provider": { "@id": "https://poovarboattour.com/#business" }
+    },
+    {
+      "@type": "TouristTrip",
+      "@id": "https://poovarboattour.com/services/#honeymoon-cruise",
+      "name": "Poovar Honeymoon Boating Cruise in Poovar",
+      "description": "A quiet backwater boat ride for couples in Poovar, Kerala.",
+      "touristType": "Couples",
+      "provider": { "@id": "https://poovarboattour.com/#business" }
+    },
+    {
+      "@type": "TouristTrip",
+      "@id": "https://poovarboattour.com/services/#bird-watching-cruise",
+      "name": "Poovar Bird Watching Cruise in Poovar",
+      "description": "A slow boat ride along the mangroves of Poovar to spot water birds.",
+      "touristType": "Nature lovers and photographers",
+      "provider": { "@id": "https://poovarboattour.com/#business" }
+    },
+    {
+      "@type": "TaxiService",
+      "@id": "https://poovarboattour.com/services/#taxi-service",
+      "name": "Poovar Boat Tour Taxi Service and Tourist Spot Pickup",
+      "description": "Pick-up, drop and trips to nearby tourist spots.",
+      "provider": { "@id": "https://poovarboattour.com/#business" },
+      "areaServed": ["Poovar", "Thiruvananthapuram", "Kovalam"]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://poovarboattour.com/services/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+
+  <!-- =====================================================================
+       1. HERO SECTION: Exact H1 & Intro from PDF (Page 1)
+       Preserves high top padding for desktop & mobile header separation
+       ===================================================================== -->
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] sm:h-[90vh] w-full flex flex-col justify-center items-center bg-neera-navy-waves bg-[#06192e] text-white pt-36 sm:pt-28 pb-16 sm:pb-12 overflow-hidden border-b border-white/10">
+    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 mt-2 sm:mt-0">
+      
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+        <i class="ph-fill ph-compass text-[#b19d7f]"></i> FOUR BACKWATER CRUISES &amp; TAXI SERVICE
+      </span>
+
+      <!-- Exact H1 from PDF -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-marcellus text-white uppercase tracking-[0.14em] leading-tight max-w-5xl mx-auto">
+        Poovar Boat Service and Backwater Boating Cruises
+      </h1>
+
+      <!-- Exact Intro from PDF -->
+      <div class="space-y-3 max-w-3xl mx-auto">
+        <p class="text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed">
+          Poovar Boat Tour is a Poovar boat service offering four backwater cruises, plus a taxi service. Every boat carries up to 7 people, and the price is Rs 1,200 per boat.
+        </p>
+        <p class="text-sm sm:text-base text-white/75 font-light leading-relaxed">
+          Pick the cruise that fits your trip. All of them travel through the calm waters of Poovar, Thiruvananthapuram, Kerala.
+        </p>
+      </div>
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono uppercase tracking-widest text-[#b19d7f]">
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-users text-[#b19d7f]"></i> Up to 7 People per Boat</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-currency-inr text-[#b19d7f]"></i> Rs 1,200 per Boat</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-map-pin text-[#b19d7f]"></i> Poovar, Thiruvananthapuram, Kerala</span>
+      </div>
+
+      <!-- Downward scroll cue -->
+      <div class="pt-8 flex justify-center">
+        <a href="#services-portfolio" class="text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs font-mono uppercase tracking-widest transition">
+          <span>Explore Cruises</span>
+          <i class="ph-bold ph-arrow-down text-sm animate-bounce text-[#b19d7f]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       EDITORIAL SERVICES PORTFOLIO: Exact Content from PDF
+       ===================================================================== -->
+  <main id="services-portfolio" class="relative bg-[#faf9f5] text-[#0d0d0d] overflow-hidden">
+    
+    <!-- Intro Sub-banner from PDF -->
+    <section class="py-14 sm:py-20 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center space-y-5">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block text-center">
+            NEYYAR ESTUARY &amp; MANGROVE SANCTUARY
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-snug text-center mx-auto max-w-3xl">
+            Pick the cruise that fits your trip. All of them travel through the calm waters of Poovar, Thiruvananthapuram, Kerala.
+          </h2>
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-3 text-xs font-mono uppercase tracking-wider text-gray-600">
+            <span class="px-3.5 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">🛶 Calm Waters</span>
+            <span class="px-3.5 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">🌿 Mangrove Canals</span>
+            <span class="px-3.5 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">🌅 Sunset Horizon</span>
+            <span class="px-3.5 py-1.5 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">📍 Attupuram Jetty</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CRUISE 01: POOVAR MOTOR BOAT CRUISE (Exact PDF Content - Page 1)
+         ===================================================================== -->
+    <section id="motor-boat-cruise" class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Text Narrative -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="space-y-2">
+              <span class="font-marcellus text-4xl sm:text-5xl text-[#b19d7f] font-bold block">
+                01
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#b19d7f] font-bold block">
+                MAIN BACKWATER RIDE • UP TO 7 PEOPLE
+              </span>
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+                Poovar Motor Boat Cruise
+              </h3>
+            </div>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              <p>
+                The Poovar motor boat cruise is our main backwater ride. It takes you through the canals and mangroves of Poovar in Kerala, toward the place where the river meets the sea.
+              </p>
+              <p>
+                The ride is relaxed and suits families, friends and first-time visitors. You book the whole boat, so your group rides together. The standard ride is 2 hours, and a 1-hour ride is also available.
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 pl-4 border-l-2 border-[#b19d7f]">
+                On this route you usually pass mangrove channels, fishing villages, the river mouth and the golden sand beach. The exact stops depend on the tide and your boat driver, so ask your driver what you will see.
+              </p>
+            </div>
+
+            <!-- Price & Direct Action from PDF -->
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-[#ede8e1]">
+              <div>
+                <span class="text-2xl sm:text-3xl font-marcellus text-[#06192e] font-bold block">
+                  Rs 1,200 <span class="text-xs font-mono font-normal text-gray-500">/ boat</span>
+                </span>
+                <span class="text-xs font-mono text-gray-500 block">
+                  Price: Rs 1,200 per boat for the 2-hour ride, up to 7 people
+                </span>
+              </div>
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Poovar Motor Boat Cruise')"
+                class="px-8 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.18em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Book the Motor Boat Cruise
+              </button>
+            </div>
+          </div>
+
+          <!-- Visual Frame -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-white group">
+              <img
+                src="/images/services/motor_boat_cruise.webp"
+                alt="Poovar Motor Boat Cruise"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  CANALS • MANGROVES • ESTUARY • BEACH
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Signature Neyyar Estuary Passage
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CRUISE 02: POOVAR SUNSET CRUISE (Exact PDF Content - Page 1)
+         ===================================================================== -->
+    <section id="sunset-cruise" class="py-20 lg:py-28 bg-neera-navy-waves bg-[#06192e] text-white border-b border-white/10">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Visual Frame -->
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-[#b19d7f]/30 group">
+              <img
+                src="/images/services/sunset_cruise.webp"
+                alt="Poovar Sunset Cruise"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#06192e]/90 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  5:00 PM – 6:30 PM • GOLDEN HOUR
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Arabian Sea Horizon Sunset
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Narrative -->
+          <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <div class="space-y-2">
+              <span class="font-marcellus text-4xl sm:text-5xl text-[#b19d7f] font-bold block">
+                02
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#b19d7f] font-bold block">
+                EVENING LIGHT &amp; REFLECTIONS • 5:00 PM – 6:30 PM
+              </span>
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-white uppercase tracking-[0.12em]">
+                Poovar Sunset Cruise
+              </h3>
+            </div>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-white/85 leading-relaxed font-light">
+              <p>
+                The Poovar sunset cruise is an evening boat ride timed for the soft light before sunset. The air is cooler, and the water and sky change colour.
+              </p>
+              <p>
+                It is a good ride for couples, families and photographers. The cruise starts around 5:00 PM and runs until about 6:30 PM. Sunset time changes through the year, so tell us your date and we will confirm the right slot.
+              </p>
+            </div>
+
+            <!-- Price & Direct Action from PDF -->
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-white/15">
+              <div>
+                <span class="text-2xl sm:text-3xl font-marcellus text-white font-bold block">
+                  Rs 1,200 <span class="text-xs font-mono font-normal text-white/60">/ boat</span>
+                </span>
+                <span class="text-xs font-mono text-white/60 block">
+                  Price: Rs 1,200 per boat, up to 7 people
+                </span>
+              </div>
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Poovar Sunset Cruise')"
+                class="px-8 py-3.5 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold text-xs uppercase tracking-[0.18em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Book the Sunset Cruise
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CRUISE 03: HONEYMOON BOATING CRUISE IN POOVAR (Exact PDF Content - Page 1-2)
+         ===================================================================== -->
+    <section id="honeymoon-cruise" class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Text Narrative -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="space-y-2">
+              <span class="font-marcellus text-4xl sm:text-5xl text-[#b19d7f] font-bold block">
+                03
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#b19d7f] font-bold block">
+                PRIVATE &amp; ROMANTIC • COUPLES EXCURSION
+              </span>
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+                Honeymoon Boating Cruise in Poovar
+              </h3>
+            </div>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              <p>
+                The honeymoon cruise is a quiet backwater ride for couples who want some time on the water by themselves.
+              </p>
+              <p>
+                Because you book the whole boat, you have the boat to yourselves. Early morning and sunset are the most peaceful times for a couple's ride.
+              </p>
+            </div>
+
+            <!-- Price & Direct Action from PDF -->
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-[#ede8e1]">
+              <div>
+                <span class="text-2xl sm:text-3xl font-marcellus text-[#06192e] font-bold block">
+                  Rs 1,200 <span class="text-xs font-mono font-normal text-gray-500">/ boat</span>
+                </span>
+                <span class="text-xs font-mono text-gray-500 block">
+                  Price: Rs 1,200 per boat for the 2-hour ride
+                </span>
+              </div>
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Honeymoon Boating Cruise')"
+                class="px-8 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.18em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Book the Honeymoon Cruise
+              </button>
+            </div>
+          </div>
+
+          <!-- Visual Frame -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-white group">
+              <img
+                src="/images/services/honeymoon_cruise.webp"
+                alt="Honeymoon Boating Cruise in Poovar"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  SECLUDED MANGROVE CHANNELS
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Intimate Private Couple Charter
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CRUISE 04: BIRD WATCHING CRUISE IN POOVAR (Exact PDF Content - Page 2)
+         ===================================================================== -->
+    <section id="bird-watching-cruise" class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Visual Frame -->
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-gray-200 group">
+              <img
+                src="/images/services/bird_watching_cruise.webp"
+                alt="Bird Watching Cruise in Poovar"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  KINGFISHERS • HERONS • EGRETS
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Early Morning Mangrove Sanctuary
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Narrative -->
+          <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <div class="space-y-2">
+              <span class="font-marcellus text-4xl sm:text-5xl text-[#b19d7f] font-bold block">
+                04
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#b19d7f] font-bold block">
+                BIRD WATCHING &amp; WILDLIFE • EARLY MORNING DEPARTURES
+              </span>
+              <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+                Bird Watching Cruise in Poovar
+              </h3>
+            </div>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              <p>
+                Poovar is good for bird watching because the mangroves and backwaters are home to water birds. The bird watching cruise moves slowly so you can look and take photos.
+              </p>
+              <p>
+                Birds often seen here include kingfishers, herons and egrets. Early morning is usually the best time, when the birds are most active. Your boat driver can help you spot them.
+              </p>
+            </div>
+
+            <!-- Direct Action Button from PDF -->
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-[#ede8e1]">
+              <div>
+                <span class="text-2xl sm:text-3xl font-marcellus text-[#06192e] font-bold block">
+                  Rs 1,200 <span class="text-xs font-mono font-normal text-gray-500">/ boat</span>
+                </span>
+                <span class="text-xs font-mono text-gray-500 block">
+                  Standard 2-hour backwater bird excursion, up to 7 people
+                </span>
+              </div>
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Bird Watching Cruise')"
+                class="px-8 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.18em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Book the Bird Watching Cruise
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CARS: TAXI SERVICE AND TOURIST SPOT PICKUP (Exact PDF Content - Page 2)
+         ===================================================================== -->
+    <section id="taxi-service" class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+              CARS &amp; TAXI SERVICE
+            </span>
+            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+              Cars, Taxi Service and Tourist Spot Pickup
+            </h3>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              <p>
+                Poovar Boat Tour also runs a taxi service. We can pick you up, drop you off and take you to nearby tourist spots.
+              </p>
+              <p>
+                We can arrange pick-up and drop from places near Poovar, such as Kovalam, Trivandrum airport and Trivandrum Central railway station. Tell us where you are staying and which places you want to see. We will arrange the taxi with your boat ride. The taxi price depends on the distance and the places, so ask for the price when you book.
+              </p>
+            </div>
+
+            <!-- Milestone distance pills -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div class="p-3 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">
+                <span class="text-[11px] font-semibold text-[#06192e] block">Airport</span>
+                <span class="font-mono text-xs font-bold text-[#b19d7f]">~30 km</span>
+              </div>
+              <div class="p-3 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">
+                <span class="text-[11px] font-semibold text-[#06192e] block">Central Station</span>
+                <span class="font-mono text-xs font-bold text-[#b19d7f]">~27 km</span>
+              </div>
+              <div class="p-3 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">
+                <span class="text-[11px] font-semibold text-[#06192e] block">Kovalam Beach</span>
+                <span class="font-mono text-xs font-bold text-[#b19d7f]">Nearby Coast</span>
+              </div>
+              <div class="p-3 bg-white border border-[#ede8e1] rounded-[7px] shadow-2xs">
+                <span class="text-[11px] font-semibold text-[#06192e] block">Kanyakumari</span>
+                <span class="font-mono text-xs font-bold text-[#b19d7f]">~71 km</span>
+              </div>
+            </div>
+
+            <!-- Exact Button from PDF -->
+            <div class="pt-2">
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Cars & Taxi Service Inquiry')"
+                class="px-8 py-3.5 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold text-xs uppercase tracking-[0.2em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Ask About Taxi Service
+              </button>
+            </div>
+          </div>
+
+          <!-- High-Res Visual Frame for Cars & Taxi Service -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-white group">
+              <img
+                src="/images/services/tourist_cars_service.webp"
+                alt="Poovar Boat Tour Tourist Cars, Innova Crysta & Sedan Taxi Service"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  TOURIST CARS &bull; INNOVA CRYSTA &amp; SEDANS
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Comfortable Airport, Kovalam &amp; Station Commute
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SPA AND MASSAGE NEAR POOVAR (Exact PDF Content - Page 2)
+         ===================================================================== -->
+    <section id="spa-massage" class="py-20 lg:py-28 bg-[#faf9f5] border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- High-Res Visual Frame for Spa & Massage -->
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-[7px] shadow-2xl border border-white group">
+              <img
+                src="/images/services/spa_massage_poovar.webp"
+                alt="Kerala Ayurvedic Spa and Massage Near Poovar Backwaters"
+                loading="lazy"
+                class="w-full h-80 sm:h-[460px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#06192e]/85 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#b19d7f] block font-bold">
+                  AUTHENTIC KERALA AYURVEDA &bull; HERBAL THERAPY
+                </span>
+                <span class="font-marcellus text-sm uppercase tracking-wider text-white block">
+                  Peaceful Waterfront Rejuvenation
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Narrative -->
+          <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+              POST-CRUISE RELAXATION &amp; AYURVEDA
+            </span>
+            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+              Spa and Massage Near Poovar
+            </h3>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <div class="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+              <p>
+                Poovar Boat Tour can help you add a spa and massage session to your Poovar trip. After a backwater cruise, many guests like to relax with a massage.
+              </p>
+              <p>
+                You can ask us to arrange an Ayurvedic massage, a body massage or a full spa session at a spa and massage centre near Poovar. This works well for couples on a honeymoon trip, families and anyone who wants a restful day after the boat ride. Tell us your date, the number of people and the type of massage you want. We will confirm the timing and price when you book, because the price depends on the massage and the duration.
+              </p>
+            </div>
+
+            <!-- Exact Button from PDF -->
+            <div class="pt-2">
+              <button
+                type="button"
+                onclick="openBookingModal('Service: Spa and Massage Inquiry')"
+                class="px-8 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.2em] transition rounded-[7px] shadow-lg cursor-pointer"
+              >
+                Ask About Spa and Massage
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         GUEST FACILITIES: TOILET & PARKING (Exact PDF Content - Page 2 & 3)
+         ===================================================================== -->
+    <section id="guest-facilities" class="py-20 lg:py-28 bg-white border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="max-w-2xl">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block mb-2">
+            BOARDING JETTY AMENITIES
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight">
+            Guest Facilities at Poovar Boat Jetty
+          </h2>
+          <p class="mt-3 text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+            Convenient, clean and hassle-free facilities designed for families, seniors, groups and individual travelers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          
+          <!-- Facility 1: Toilet Facilities for Guests (Exact PDF Content) -->
+          <div class="bg-[#faf9f5] border border-[#ede8e1] rounded-[7px] shadow-md overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src="/images/services/jetty_toilet_facilities.webp"
+                  alt="Clean Toilet Facilities for Guests at Poovar Boat Jetty"
+                  loading="lazy"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="px-3 py-1 bg-[#06192e]/90 text-[#b19d7f] text-[10px] font-bold uppercase tracking-[0.2em] rounded-[7px] backdrop-blur-sm border border-[#b19d7f]/30">
+                    JETTY AMENITY
+                  </span>
+                </div>
+              </div>
+              <div class="p-8 sm:p-10 space-y-4">
+                <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+                  Toilet Facilities for Guests
+                </h3>
+                <!-- Exact Verbatim Text from PDF -->
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                  Clean toilet facilities are available for guests before and after the boat ride at the Poovar Boat Tour boarding point at Attupuram Jetty. This is helpful for families with children, senior guests and groups who have travelled a long way. If you need a toilet break during your trip, tell your boat driver or ask our team and we will guide you to the nearest facility.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 sm:p-10 pt-0">
+              <div class="pt-4 border-t border-[#ede8e1] flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#b19d7f] font-semibold">
+                <i class="ph-fill ph-shield-check"></i> Available Before &amp; After Ride
+              </div>
+            </div>
+          </div>
+
+          <!-- Facility 2: Parking Facilities at Poovar Boat Jetty (Exact PDF Content) -->
+          <div class="bg-[#faf9f5] border border-[#ede8e1] rounded-[7px] shadow-md overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src="/images/services/jetty_parking_facilities.webp"
+                  alt="Parking Facilities at Poovar Boat Jetty for Cars and Buses"
+                  loading="lazy"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="px-3 py-1 bg-[#b19d7f] text-[#06192e] text-[10px] font-bold uppercase tracking-[0.2em] rounded-[7px] font-semibold shadow">
+                    PARKING ACCESS
+                  </span>
+                </div>
+              </div>
+              <div class="p-8 sm:p-10 space-y-4">
+                <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+                  Parking Facilities at Poovar Boat Jetty
+                </h3>
+                <!-- Exact Verbatim Text from PDF -->
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                  Parking is available for cars and two-wheelers near the Poovar boat jetty . You can park your vehicle, board your boat and enjoy your Poovar backwater cruise without worry. If you are coming in a large group or in a tourist bus, call us before you arrive so we can tell you where to park. If you do not want to drive, our taxi service can pick you up from Kovalam, Trivandrum airport or Trivandrum Central railway station.
+                </p>
+              </div>
+            </div>
+            <!-- Exact Button from PDF -->
+            <div class="p-8 sm:p-10 pt-0">
+              <div class="pt-4 border-t border-[#ede8e1]">
+                <button
+                  type="button"
+                  onclick="openBookingModal('Service: Parking Inquiry')"
+                  class="px-8 py-3 bg-[#06192e] hover:bg-[#b19d7f] text-white font-bold text-xs uppercase tracking-[0.2em] transition rounded-[7px] shadow cursor-pointer"
+                >
+                  Ask About Parking
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         UNDERSTANDING THE POOVAR BACKWATERS: 5 Core Questions (Exact PDF Content - Page 3)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-[#faf9f5]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        
+        <div class="max-w-2xl">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block mb-2">
+            BACKWATER INSIGHTS
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight">
+            Understanding the Poovar Backwaters
+          </h2>
+          <p class="mt-3 text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+            Essential facts on tides, daylight, timing, estuary geography, and mangrove canopies.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+          
+          <!-- Question 1: Difference Between Sunset and Day Cruise -->
+          <div class="space-y-3 pt-6 lg:pt-0 lg:px-4 first:lg:pl-0">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              01
+            </span>
+            <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+              What Is the Difference Between a Sunset Cruise and a Day Cruise in Poovar?
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
+              A day cruise shows the backwaters in bright light, while a sunset cruise runs near dusk, with softer light, cooler air and sky colours over the water.
+            </p>
+            <p class="text-xs text-gray-600 leading-relaxed font-light">
+              Choose a day cruise to see the mangroves and birds clearly. Choose the sunset cruise for photos and a calmer, cooler ride.
+            </p>
+          </div>
+
+          <!-- Question 2: How Long Is the Poovar Sunset Cruise? -->
+          <div class="space-y-3 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              02
+            </span>
+            <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+              How Long Is the Poovar Sunset Cruise?
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
+              The Poovar Boat Tour sunset cruise runs from about 5:00 PM to 6:30 PM, which is about 1.5 hours on the water. Tell us your date and we will confirm the start time, so you are on the water at sunset.
+            </p>
+            <div class="pt-1 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              ~1.5 Hours &bull; Departs ~5:00 PM
+            </div>
+          </div>
+
+          <!-- Question 3: Best Time of Day for a Boat Ride -->
+          <div class="space-y-3 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              03
+            </span>
+            <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+              What Is the Best Time of Day for a Poovar Boat Ride?
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
+              Early morning and late afternoon are the best times for a Poovar boat ride, because the heat is lower, the water is calm and the light is good for photos.
+            </p>
+            <p class="text-xs text-gray-600 leading-relaxed font-light">
+              Morning is also best for bird watching, because many birds are active early in the day.
+            </p>
+          </div>
+
+          <!-- Question 4: What Is the Poovar Estuary? -->
+          <div class="space-y-3 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              04
+            </span>
+            <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+              What Is the Poovar Estuary?
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
+              The Poovar estuary is the place where the Neyyar River meets the Arabian Sea. The boat ride goes through this area, so you see river water and sea together.
+            </p>
+            <div class="pt-1 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              River Meets Sea Sanctuary
+            </div>
+          </div>
+
+          <!-- Question 5: What Are the Mangroves in Poovar? -->
+          <div class="space-y-3 pt-6 lg:pt-0 lg:px-4">
+            <span class="font-marcellus text-3xl sm:text-4xl text-[#b19d7f] font-bold block">
+              05
+            </span>
+            <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] uppercase tracking-wide">
+              What Are the Mangroves in Poovar?
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
+              Mangroves are salt-tolerant trees that grow along the banks of the backwaters. Their roots shelter fish and birds, and the boat passes close to them.
+            </p>
+            <div class="pt-1 text-[11px] font-mono font-bold text-[#b19d7f] uppercase tracking-wider">
+              Protected Root Canals
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         HOW TO BOOK A CRUISE (Exact PDF Content - Page 3)
+         ===================================================================== -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative bg-neera-navy-waves bg-[#06192e] text-white p-8 sm:p-14 lg:p-16 text-center rounded-[7px] border border-[#b19d7f]/40 shadow-2xl overflow-hidden">
+          <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+              <i class="ph-fill ph-calendar-check text-[#b19d7f]"></i> EASY DIRECT RESERVATION
+            </span>
+            
+            <!-- Exact H2 from PDF -->
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-marcellus text-white uppercase tracking-[0.14em]">
+              How to Book a Cruise
+            </h2>
+
+            <!-- Exact Verbatim Text from PDF -->
+            <p class="text-sm sm:text-base text-white/85 font-light leading-relaxed">
+              Book any cruise by calling Poovar Boat Tour or filling in the form on the contact page. Tell us your cruise, date, time and number of people.
+            </p>
+
+            <!-- Exact Links from PDF: Check prices (/pricing-and-packages/) and read the FAQs (/faqs/) -->
+            <div class="pt-3 flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+              <a
+                href="/pricing/"
+                class="px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl hover:-translate-y-0.5"
+              >
+                Check prices
+              </a>
+              <a
+                href="/faqs/"
+                class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-[7px] transition border border-white/20"
+              >
+                Read the FAQs
+              </a>
+              <a
+                href="/contact/"
+                class="px-8 py-4 bg-white text-[#06192e] hover:bg-[#f5f3ef] rounded-[7px] transition shadow-lg"
+              >
+                Contact &amp; Book
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SERVICES PAGE FAQ BLOCK: 10 Exact FAQs from PDF (Pages 3-4)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-t border-[#ede8e1] bg-white">
+      <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center space-y-3">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+            SERVICES PAGE FAQ BLOCK
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+            Services Frequently Asked Questions
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-600 font-light max-w-xl mx-auto">
+            Direct answers about our boat rides, timings, private couple bookings, and mangrove wildlife.
+          </p>
+        </div>
+
+        <!-- Seamless Borderless FAQ Accordion List -->
+        <div class="divide-y divide-gray-200 border-y border-gray-200">
+          {servicesFaqs.map((faq) => (
+            <details name="exclusive-services-faq" class="group py-6 transition-colors duration-200">
+              <summary class="flex items-center justify-between gap-6 cursor-pointer list-none select-none">
+                <div class="flex items-center gap-4 sm:gap-6">
+                  <span class="font-mono text-xs font-bold text-[#b19d7f] px-2.5 py-1 bg-gray-100 rounded-[7px]">
+                    {faq.num}
+                  </span>
+                  <h4 class="font-marcellus text-base sm:text-lg text-[#06192e] group-hover:text-[#b19d7f] tracking-wide transition-colors">
+                    {faq.q.replace(/^\d+\.\s*/, '')}
+                  </h4>
+                </div>
+                <div class="w-8 h-8 rounded-[7px] border border-gray-300 flex items-center justify-center text-sm text-[#b19d7f] flex-shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-[#06192e] group-open:text-white group-open:border-transparent">
+                  +
+                </div>
+              </summary>
+              <div class="pt-4 pl-12 sm:pl-16 pr-4">
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                  {faq.a}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</Layout>

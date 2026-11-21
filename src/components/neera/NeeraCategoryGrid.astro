@@ -1,0 +1,202 @@
+---
+// NEERA THEME SECTION 5: FULL-BLEED 4-COLUMN CATEGORY GRID ("FIND YOUR BEST")
+// Full-bleed deep ocean navy background with thin hairline divider columns
+---
+
+<section class="relative bg-neera-navy-waves bg-[#06192e] py-20 lg:py-28 text-white overflow-hidden border-b border-white/10">
+  <div class="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header with Prev/Next Controls matching Neera -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 neera-reveal">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[0.25em] text-[#b19d7f] block mb-2">
+          LOOK UP BY CATEGORY
+        </span>
+        <h2 class="font-marcellus text-3xl sm:text-4xl lg:text-5xl uppercase tracking-[0.14em] text-white">
+          FIND YOUR BEST
+        </h2>
+      </div>
+
+      <!-- Controls matching Neera screenshot -->
+      <div class="flex items-center gap-6 text-xs font-mono uppercase tracking-[0.2em] text-[#b19d7f]">
+        <button
+          type="button"
+          onclick="document.getElementById('category-strip').scrollBy({ left: -320, behavior: 'smooth' })"
+          class="hover:text-white transition cursor-pointer"
+        >
+          &larr; PREV
+        </button>
+        <span class="text-white/20">|</span>
+        <button
+          type="button"
+          onclick="document.getElementById('category-strip').scrollBy({ left: 320, behavior: 'smooth' })"
+          class="hover:text-white transition cursor-pointer"
+        >
+          NEXT &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Full-Bleed Vertical Columns separated by Hairline Dividers -->
+    <div
+      id="category-strip"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15 border-t border-b border-white/15 overflow-x-auto overflow-y-hidden no-scrollbar lg:overflow-visible py-3 -my-3 px-1"
+    >
+      
+      <!-- Column 1: Motor Boat Cruise -->
+      <div
+        class="relative group p-8 lg:p-10 flex flex-col justify-between min-h-[480px] overflow-hidden neera-reveal transition-all duration-500"
+      >
+        <!-- Background Photo (Reveals 100% on hover, fully crisp & vibrant) -->
+        <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+          <img
+            src="/images/poovar_boat_1.webp"
+            alt="Motor Boat Cruise Poovar"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#06192e] via-[#06192e]/80 to-transparent group-hover:opacity-0 transition-opacity duration-500 z-0 pointer-events-none"></div>
+
+        <!-- Details (Dissolve to invisible on hover so only the image is visible) -->
+        <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-all duration-500 transform group-hover:-translate-y-2 pointer-events-none">
+          <div class="w-16 h-16 rounded-[7px] flex items-center justify-center text-white text-4xl border border-white/20 group-hover:border-[#b19d7f] group-hover:text-[#b19d7f] transition duration-500">
+            <i class="ph-light ph-boat"></i>
+          </div>
+          <h3 class="font-marcellus text-xl sm:text-2xl uppercase tracking-[0.16em] text-white">
+            MOTOR BOAT CRUISE
+          </h3>
+          <!-- Verbatim PDF content -->
+          <p class="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
+            The standard Poovar Boat Tour ride is 2 hours on the backwaters for up to 7 people. Covers mangroves, estuary and beach.
+          </p>
+        </div>
+
+        <div class="relative z-10 pt-8 transition-all duration-500 transform pointer-events-auto">
+          <button
+            type="button"
+            onclick="openBookingModal('Motor boat cruise (2 hours, up to 7 people)')"
+            class="w-full sm:w-auto px-7 py-3 bg-[#b19d7f] hover:bg-[#c2ad8f] text-white font-bold uppercase tracking-[0.18em] text-[11px] rounded-[7px] transition duration-300 shadow-lg inline-block text-center cursor-pointer pointer-events-auto active:scale-95"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+
+      <!-- Column 2: Sunset Cruise -->
+      <div
+        class="relative group p-8 lg:p-10 flex flex-col justify-between min-h-[480px] overflow-hidden neera-reveal transition-all duration-500"
+      >
+        <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+          <img
+            src="/images/poovar_golden_sunset.webp"
+            alt="Sunset Cruise Poovar"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#06192e] via-[#06192e]/80 to-transparent group-hover:opacity-0 transition-opacity duration-500 z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-all duration-500 transform group-hover:-translate-y-2 pointer-events-none">
+          <div class="w-16 h-16 rounded-[7px] flex items-center justify-center text-white text-4xl border border-white/20 group-hover:border-[#b19d7f] group-hover:text-[#b19d7f] transition duration-500">
+            <i class="ph-light ph-sun-horizon"></i>
+          </div>
+          <h3 class="font-marcellus text-xl sm:text-2xl uppercase tracking-[0.16em] text-white">
+            SUNSET CRUISE
+          </h3>
+          <!-- Verbatim PDF content -->
+          <p class="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
+            The sunset cruise starts in the late afternoon, between 5:00 PM and 6:30 PM. Watch evening light over the river and the sea.
+          </p>
+        </div>
+
+        <div class="relative z-10 pt-8 transition-all duration-500 transform pointer-events-auto">
+          <button
+            type="button"
+            onclick="openBookingModal('Sunset cruise (evening 5:00 PM - 6:30 PM)')"
+            class="w-full sm:w-auto px-7 py-3 bg-[#b19d7f] hover:bg-[#c2ad8f] text-white font-bold uppercase tracking-[0.18em] text-[11px] rounded-[7px] transition duration-300 shadow-lg inline-block text-center cursor-pointer pointer-events-auto active:scale-95"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+
+      <!-- Column 3: Honeymoon Cruise -->
+      <div
+        class="relative group p-8 lg:p-10 flex flex-col justify-between min-h-[480px] overflow-hidden neera-reveal transition-all duration-500"
+      >
+        <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+          <img
+            src="/images/poovar_boat_2.webp"
+            alt="Honeymoon Cruise Poovar"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#06192e] via-[#06192e]/80 to-transparent group-hover:opacity-0 transition-opacity duration-500 z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-all duration-500 transform group-hover:-translate-y-2 pointer-events-none">
+          <div class="w-16 h-16 rounded-[7px] flex items-center justify-center text-white text-4xl border border-white/20 group-hover:border-[#b19d7f] group-hover:text-[#b19d7f] transition duration-500">
+            <i class="ph-light ph-heart"></i>
+          </div>
+          <h3 class="font-marcellus text-xl sm:text-2xl uppercase tracking-[0.16em] text-white">
+            HONEYMOON CRUISE
+          </h3>
+          <!-- Verbatim PDF content -->
+          <p class="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
+            A private boat ride for couples on the calm backwaters of Poovar. Enjoy quiet canals, beautiful views, and time together.
+          </p>
+        </div>
+
+        <div class="relative z-10 pt-8 transition-all duration-500 transform pointer-events-auto">
+          <button
+            type="button"
+            onclick="openBookingModal('Honeymoon cruise (private couple ride)')"
+            class="w-full sm:w-auto px-7 py-3 bg-[#b19d7f] hover:bg-[#c2ad8f] text-white font-bold uppercase tracking-[0.18em] text-[11px] rounded-[7px] transition duration-300 shadow-lg inline-block text-center cursor-pointer pointer-events-auto active:scale-95"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+
+      <!-- Column 4: Bird Watching Cruise -->
+      <div
+        class="relative group p-8 lg:p-10 flex flex-col justify-between min-h-[480px] overflow-hidden neera-reveal transition-all duration-500"
+      >
+        <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+          <img
+            src="/images/poovar_egret_wetland.webp"
+            alt="Bird Watching Cruise Poovar"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#06192e] via-[#06192e]/80 to-transparent group-hover:opacity-0 transition-opacity duration-500 z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-all duration-500 transform group-hover:-translate-y-2 pointer-events-none">
+          <div class="w-16 h-16 rounded-[7px] flex items-center justify-center text-white text-4xl border border-white/20 group-hover:border-[#b19d7f] group-hover:text-[#b19d7f] transition duration-500">
+            <i class="ph-light ph-binoculars"></i>
+          </div>
+          <h3 class="font-marcellus text-xl sm:text-2xl uppercase tracking-[0.16em] text-white">
+            BIRD WATCHING
+          </h3>
+          <!-- Verbatim PDF content -->
+          <p class="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
+            A quiet ride through the mangroves to spot water birds. Kingfishers, egrets, herons, and cormorants can be seen along the Neyyar.
+          </p>
+        </div>
+
+        <div class="relative z-10 pt-8 transition-all duration-500 transform pointer-events-auto">
+          <button
+            type="button"
+            onclick="openBookingModal('Bird watching cruise (mangrove channels)')"
+            class="w-full sm:w-auto px-7 py-3 bg-[#b19d7f] hover:bg-[#c2ad8f] text-white font-bold uppercase tracking-[0.18em] text-[11px] rounded-[7px] transition duration-300 shadow-lg inline-block text-center cursor-pointer pointer-events-auto active:scale-95"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

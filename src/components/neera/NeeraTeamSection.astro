@@ -1,0 +1,185 @@
+---
+// NEERA THEME SECTION 9: FLEET & BOAT EXPERTS ("OUR YACHT EXPERTS")
+// Upgraded to organic curved vessel frames & smooth horizontal scroll controller
+---
+
+<section class="relative bg-neera-navy-waves bg-[#06192e] py-20 lg:py-28 text-white overflow-hidden border-b border-white/10">
+  {/* Ambient decorative glow */}
+  
+
+  <div class="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    {/* Header with Smooth Controller Buttons */}
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 neera-reveal">
+      <div class="space-y-3 max-w-2xl">
+        <span class="text-[11px] font-bold uppercase tracking-[0.25em] text-[#b19d7f] block">
+          OUR LOCAL BOAT FLEET &amp; EXPERTS
+        </span>
+        <h2 class="font-marcellus text-3xl sm:text-4xl lg:text-5xl uppercase tracking-[0.14em] text-white">
+          OUR YACHT EXPERTS
+        </h2>
+        <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+          Certified inland water vessels and experienced local skippers born and raised along the Neyyar River and Poovar backwaters, certified in passenger safety.
+        </p>
+      </div>
+
+      {/* Controller Buttons to Smoothly Scroll the Fleet Strip */}
+      <div class="flex items-center gap-3 self-start md:self-auto text-xs font-mono uppercase tracking-wider">
+        <button
+          type="button"
+          onclick="document.getElementById('fleet-strip').scrollBy({ left: -340, behavior: 'smooth' })"
+          class="w-10 h-10 rounded-[7px] border border-white/20 hover:border-[#b19d7f] hover:bg-[#b19d7f] hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+          aria-label="Scroll fleet left"
+        >
+          &larr;
+        </button>
+        <span class="text-white/40 text-[11px]">4 CRAFTS</span>
+        <button
+          type="button"
+          onclick="document.getElementById('fleet-strip').scrollBy({ left: 340, behavior: 'smooth' })"
+          class="w-10 h-10 rounded-[7px] border border-white/20 hover:border-[#b19d7f] hover:bg-[#b19d7f] hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+          aria-label="Scroll fleet right"
+        >
+          &rarr;
+        </button>
+      </div>
+    </div>
+
+    {/* 4 Organic Curved Vessel & Specialist Cards */}
+    <div
+      id="fleet-strip"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth lg:overflow-visible py-3 -my-3 px-1"
+    >
+      
+      {/* Card 1 */}
+      <div class="group bg-gradient-to-b from-[#061e38] to-[#04101e] rounded-[7px] border border-white/15 overflow-hidden shadow-2xl flex flex-col justify-between hover:border-[#b19d7f]/60 transition-all duration-500 hover:-translate-y-1.5">
+        <div class="relative overflow-hidden h-72 sm:h-80 flash-frame">
+          <img
+            src="/images/kerala_boatman.webp"
+            alt="Safari Motor Cruiser - Neyyar River & Backwaters"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 bg-black/60  px-3 py-1 rounded-[7px] text-[10px] font-mono text-[#b19d7f] border border-white/10 uppercase tracking-widest">
+            Vessel 01
+          </div>
+        </div>
+        <div class="p-6 text-center space-y-1.5 relative z-10">
+          <h3 class="font-marcellus text-lg uppercase tracking-wider text-white">
+            Safari Motor Cruiser
+          </h3>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-[#b19d7f] block font-semibold">
+            Senior River Pilot • 18+ Yrs
+          </span>
+          <p class="text-[11px] text-white/60 font-light pt-1">
+            Neyyar River &amp; Backwater Safari
+          </p>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div class="group bg-gradient-to-b from-[#061e38] to-[#04101e] rounded-[7px] border border-white/15 overflow-hidden shadow-2xl flex flex-col justify-between hover:border-[#b19d7f]/60 transition-all duration-500 hover:-translate-y-1.5">
+        <div class="relative overflow-hidden h-72 sm:h-80 flash-frame">
+          <img
+            src="/images/about/backwater_ecosystem.webp"
+            alt="Mangrove Canal Explorer - Forest Waterways"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 bg-black/60  px-3 py-1 rounded-[7px] text-[10px] font-mono text-[#b19d7f] border border-white/10 uppercase tracking-widest">
+            Vessel 02
+          </div>
+        </div>
+        <div class="p-6 text-center space-y-1.5 relative z-10">
+          <h3 class="font-marcellus text-lg uppercase tracking-wider text-white">
+            Mangrove Canal Explorer
+          </h3>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-[#b19d7f] block font-semibold">
+            Canopy Navigator • 14+ Yrs
+          </span>
+          <p class="text-[11px] text-white/60 font-light pt-1">
+            Narrow Mangrove Passages &amp; Islets
+          </p>
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div class="group bg-gradient-to-b from-[#061e38] to-[#04101e] rounded-[7px] border border-white/15 overflow-hidden shadow-2xl flex flex-col justify-between hover:border-[#b19d7f]/60 transition-all duration-500 hover:-translate-y-1.5">
+        <div class="relative overflow-hidden h-72 sm:h-80 flash-frame">
+          <img
+            src="/images/kerala_sunset_lake.webp"
+            alt="Golden Sunset Cruiser - Pozhi Estuary Confluence"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 bg-black/60  px-3 py-1 rounded-[7px] text-[10px] font-mono text-[#b19d7f] border border-white/10 uppercase tracking-widest">
+            Vessel 03
+          </div>
+        </div>
+        <div class="p-6 text-center space-y-1.5 relative z-10">
+          <h3 class="font-marcellus text-lg uppercase tracking-wider text-white">
+            Golden Sunset Cruiser
+          </h3>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-[#b19d7f] block font-semibold">
+            Estuary Specialist • 12+ Yrs
+          </span>
+          <p class="text-[11px] text-white/60 font-light pt-1">
+            Pozhi Estuary &amp; Arabian Sea Sandbar
+          </p>
+        </div>
+      </div>
+
+      {/* Card 4 */}
+      <div class="group bg-gradient-to-b from-[#061e38] to-[#04101e] rounded-[7px] border border-white/15 overflow-hidden shadow-2xl flex flex-col justify-between hover:border-[#b19d7f]/60 transition-all duration-500 hover:-translate-y-1.5">
+        <div class="relative overflow-hidden h-72 sm:h-80 flash-frame">
+          <img
+            src="/images/kerala_houseboat_alleppey.webp"
+            alt="Private Couple Charter - Romantic Waterways"
+            loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 bg-black/60  px-3 py-1 rounded-[7px] text-[10px] font-mono text-[#b19d7f] border border-white/10 uppercase tracking-widest">
+            Vessel 04
+          </div>
+        </div>
+        <div class="p-6 text-center space-y-1.5 relative z-10">
+          <h3 class="font-marcellus text-lg uppercase tracking-wider text-white">
+            Private Couple Charter
+          </h3>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-[#b19d7f] block font-semibold">
+            Lead Master Skipper • 20+ Yrs
+          </span>
+          <p class="text-[11px] text-white/60 font-light pt-1">
+            Secluded Lagoons &amp; Quiet Canals
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Bottom Trust Assurance */}
+    <div class="pt-6 text-center">
+      <div class="inline-flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono uppercase tracking-[0.2em] text-white/60 bg-white/5 px-8 py-3 rounded-[7px] border border-white/10">
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-[7px] bg-emerald-400"></span>
+          KMBR Inspected &amp; Licensed
+        </span>
+        <span class="hidden sm:inline text-white/20">•</span>
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-[7px] bg-[#b19d7f]"></span>
+          Adult &amp; Child Life Jackets Onboard
+        </span>
+        <span class="hidden sm:inline text-white/20">•</span>
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-[7px] bg-blue-400"></span>
+          Zero Hidden Fees
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>

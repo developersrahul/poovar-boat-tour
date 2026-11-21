@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqCategories = [
+  {
+    id: "timings-season",
+    num: "01",
+    title: "Timings & Seasonal Guide",
+    subtitle: "Operational hours, ride durations, and optimal visiting windows.",
+    faqs: [
+      {
+        num: "01",
+        q: "1. What are the Poovar boating timings?",
+        a: "Poovar boat rides usually run during the day, from morning to evening. Call Poovar Boat Tour or use the booking form to choose the time that suits you. The sunset cruise starts in the late afternoon, and the exact time changes with the season."
+      },
+      {
+        num: "02",
+        q: "2. Is Poovar boating open every day?",
+        a: "Poovar Boat Tour takes bookings for all days of the week. Tell us your date, and we will confirm a boat for you. Rides can be moved in rough weather or heavy rain, so confirm before you travel."
+      },
+      {
+        num: "03",
+        q: "3. What is the best time to visit Poovar?",
+        a: "The cooler months from October to March are the most comfortable for Poovar boating. Mornings and evenings are pleasant at any time of year."
+      },
+      {
+        num: "04",
+        q: "4. How long is the Poovar boat ride?",
+        a: "The standard Poovar Boat Tour ride is 2 hours on the backwaters. If you want a shorter 1-hour ride, ask us for the price when you book."
+      }
+    ]
+  },
+  {
+    id: "safety-waterways",
+    num: "02",
+    title: "Safety, Fleet & Waterways",
+    subtitle: "Safety equipment, boat types, accessibility, and passenger welfare.",
+    faqs: [
+      {
+        num: "07",
+        q: "7. Is the Poovar boat ride suitable for children and older people?",
+        a: "Yes, the Poovar boat ride is calm and suitable for children and older people. Life jackets are provided. Tell us when you book if anyone needs extra help."
+      },
+      {
+        num: "08",
+        q: "8. Which languages do your boat drivers speak?",
+        a: "Tell us your preferred language when you book, and we will do our best to help. Most visitors can ask their boat driver about the route and the birds along the way."
+      },
+      {
+        num: "10",
+        q: "10. What is the difference between a motor boat and a country boat?",
+        a: "A motor boat is faster and covers more of the backwaters, while a country boat is slower and quieter. Our standard ride is on a motor boat. Ask us if you prefer a country boat."
+      },
+      {
+        num: "16",
+        q: "16. Can I swim or get off at the beach during the ride?",
+        a: "The Poovar boat ride goes close to the golden sand beach at the river mouth. Ask your boat driver whether a stop is possible on the day. Swimming in the backwater is not advised."
+      },
+      {
+        num: "17",
+        q: "17. Is the Poovar boat ride accessible for wheelchair users or people with limited mobility?",
+        a: "Boarding means stepping into the boat, so we will help guests get on and off. Tell us when you book if anyone needs extra help, and we will plan for it."
+      },
+      {
+        num: "18",
+        q: "18. Is Poovar boating the same as a Kerala houseboat stay?",
+        a: "No. Poovar boating is a short cruise of 1 to 2 hours, not an overnight houseboat stay."
+      }
+    ]
+  },
+  {
+    id: "pricing-bookings",
+    num: "03",
+    title: "Bookings, Cancellation & Schedules",
+    subtitle: "Advance reservation guidance, schedule changes, and holiday policies.",
+    faqs: [
+      {
+        num: "05",
+        q: "5. What is the cancellation policy?",
+        a: "Please tell us as early as you can if you need to cancel or change your date. Call Poovar Boat Tour or send a message, and we will help you move your ride to another day."
+      },
+      {
+        num: "19",
+        q: "19. Is Poovar Boat Tour open on festivals and public holidays?",
+        a: "Call Poovar Boat Tour to check availability on festivals and public holidays. Book early, because these days are usually busy."
+      },
+      {
+        num: "20",
+        q: "20. How early should I arrive before my boat ride?",
+        a: "We suggest arriving about 15 minutes before your booked time. This leaves time to find the boarding point, board the boat and put on a life jacket."
+      }
+    ]
+  },
+  {
+    id: "weather-monsoon",
+    num: "04",
+    title: "Weather, Rain & Monsoon Boating",
+    subtitle: "Guidelines for rainy days, seasonal monsoons, and tidal conditions.",
+    faqs: [
+      {
+        num: "06",
+        q: "6. Can I get a refund if it rains?",
+        a: "Light rain usually does not stop the ride. If the weather is not safe for boating, we will help you move your ride to another day."
+      },
+      {
+        num: "11",
+        q: "11. Is Poovar boating safe during the monsoon?",
+        a: "Poovar boating is usually paused in heavy rain or rough water, and rides run only when conditions are safe. Call us before you travel in the monsoon months to check the day."
+      }
+    ]
+  },
+  {
+    id: "amenities-prep",
+    num: "05",
+    title: "Amenities, Attire & Boarding Prep",
+    subtitle: "What to wear, parking, washrooms, dining, and photography recommendations.",
+    faqs: [
+      {
+        num: "09",
+        q: "9. Is there parking at the boarding point?",
+        a: "Please ask us about parking when you book, and we will tell you where to park. If you take our taxi service, you do not need to park."
+      },
+      {
+        num: "12",
+        q: "12. What should I wear and carry on a Poovar boat ride?",
+        a: "Wear light, comfortable clothes and non-slip footwear, and carry sunscreen, a cap and water. In the rainy months, carry a light rain jacket."
+      },
+      {
+        num: "13",
+        q: "13. Can I take photos and videos during the boat ride?",
+        a: "Yes, you can take photos and videos on a Poovar Boat Tour ride. Keep your phone or camera secure near the water, and hold it with a strap if you can."
+      },
+      {
+        num: "14",
+        q: "14. Is there a washroom at the Poovar Boat Tour boarding point?",
+        a: "Please use a washroom before the ride, because the standard boat ride is 2 hours. Ask us about nearby facilities when you book."
+      },
+      {
+        num: "15",
+        q: "15. Is food or drink available near the boarding point?",
+        a: "Poovar has restaurants and a floating restaurant on the backwaters. Ask us for suggestions when you book, and carry water for the ride."
+      }
+    ]
+  }
+];
+
+// Flatten for schema
+const allFaqs = faqCategories.flatMap(cat => cat.faqs);
+
+const faqsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://poovarboattour.com/faqs/#faq",
+      "url": "https://poovarboattour.com/faqs/",
+      "isPartOf": { "@id": "https://poovarboattour.com/#website" },
+      "mainEntity": allFaqs.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poovarboattour.com/" },
+        { "@type": "ListItem", "position": 2, "name": "FAQs", "item": "https://poovarboattour.com/faqs/" }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title="Poovar Boating Timings & FAQs | Poovar Boat Tour"
+  description="Poovar boating timings, cancellation, safety and booking questions answered by Poovar Boat Tour. Plan your boat ride with confidence."
+  canonicalUrl="https://poovarboattour.com/faqs/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqsSchema)} />
+
+  <!-- =====================================================================
+       1. HERO SECTION: 90vh Deep Navy & Bronze Tracking
+       ===================================================================== -->
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] sm:h-[90vh] w-full flex flex-col justify-center items-center bg-neera-navy-waves bg-[#06192e] text-white pt-36 sm:pt-28 pb-16 sm:pb-12 overflow-hidden border-b border-white/10">
+    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+      
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+        <i class="ph-fill ph-question text-[#b19d7f]"></i> EVERYTHING YOU NEED TO KNOW
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-marcellus text-white uppercase tracking-[0.14em] leading-tight max-w-5xl mx-auto">
+        Poovar Boating Timings and FAQs
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
+        Poovar boating timings, cancellation, safety and booking questions answered by Poovar Boat Tour. Plan your boat ride with confidence.
+      </p>
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono uppercase tracking-widest text-[#b19d7f]">
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-clock text-[#b19d7f]"></i> Morning to Evening Rides</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-calendar text-[#b19d7f]"></i> Open All 7 Days</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-lifebuoy text-[#b19d7f]"></i> Safety First Policy</span>
+      </div>
+
+      <!-- Downward scroll cue -->
+      <div class="pt-8 flex justify-center">
+        <a href="#faq-manifesto" class="text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs font-mono uppercase tracking-widest transition">
+          <span>Read Answers</span>
+          <i class="ph-bold ph-arrow-down text-sm animate-bounce text-[#b19d7f]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       AWWWARDS-INSPIRED EDITORIAL FAQS CANVAS (Zero rigid box cards!)
+       ===================================================================== -->
+  <main id="faq-manifesto" class="relative bg-[#faf9f5] text-[#0d0d0d] overflow-hidden">
+    
+    <!-- Editorial Header & Topic Navigation Track -->
+    <section class="py-16 sm:py-24 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="max-w-3xl mx-auto text-center space-y-3">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block text-center">
+            THE OFFICIAL KNOWLEDGE BASE • 20 COMPREHENSIVE QUESTIONS
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em] leading-tight text-center mx-auto">
+            Direct &amp; Honest Answers for Every Guest
+          </h2>
+          <p class="text-base text-gray-700 font-light leading-relaxed text-center mx-auto">
+            Browse through all questions covering departure times, safety protocols, group rates, monsoon conditions, mobility assistance, and booking policies.
+          </p>
+        </div>
+
+        <!-- Sleek Topic Pills with Anchor Jumps (Centered) -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2">
+          {faqCategories.map((cat) => (
+            <a
+              href={`#${cat.id}`}
+              class="px-4 py-2 bg-white hover:bg-[#06192e] hover:text-[#b19d7f] text-gray-700 text-xs font-mono uppercase tracking-wider rounded-[7px] border border-[#ede8e1] transition-all duration-300 shadow-2xs flex items-center gap-2"
+            >
+              <span class="text-[#b19d7f] font-bold">{cat.num}</span>
+              <span>{cat.title}</span>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ACCORDION CHAPTERS: SEAMLESS LUXURY HAIRLINE LISTS
+         ===================================================================== -->
+    <section class="py-16 sm:py-24">
+      <div class="max-w-[1080px] mx-auto px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-28">
+        
+        {faqCategories.map((cat, idx) => (
+          <div id={cat.id} class="space-y-8 scroll-mt-24">
+            
+            <!-- Category Chapter Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b-2 border-[#06192e]">
+              <div>
+                <span class="text-xs font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+                  CHAPTER {cat.num}
+                </span>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] mt-1">
+                  {cat.title}
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-500 font-light max-w-sm">
+                {cat.subtitle}
+              </p>
+            </div>
+
+            <!-- Borderless Hairline Accordion Items -->
+            <div class="divide-y divide-[#ede8e1]">
+              {cat.faqs.map((faq) => (
+                <details name="exclusive-faq" class="group py-6 transition-all duration-300 cursor-pointer">
+                  <summary class="flex items-center justify-between gap-6 list-none font-marcellus text-lg sm:text-xl text-[#06192e] group-open:text-[#b19d7f] transition-colors select-none">
+                    <span class="flex items-center gap-4">
+                      <span class="text-xs font-mono text-[#b19d7f] font-bold">{faq.num}</span>
+                      <span>{faq.q.replace(/^\d+\.\s*/, '')}</span>
+                    </span>
+                    <span class="w-8 h-8 rounded-[7px] bg-white border border-[#ede8e1] group-open:border-[#b19d7f] flex items-center justify-center text-sm font-bold text-[#06192e] group-open:text-[#b19d7f] flex-shrink-0 transition-all duration-300">
+                      <span class="group-open:hidden">+</span>
+                      <span class="hidden group-open:inline">−</span>
+                    </span>
+                  </summary>
+                  <div class="pt-4 pl-8 sm:pl-10 text-sm sm:text-base text-gray-700 font-light leading-relaxed pr-4">
+                    <p>{faq.a}</p>
+                    <div class="mt-3 text-[11px] font-mono text-[#b19d7f] flex items-center gap-1.5 uppercase tracking-wider">
+                      <span>✦</span>
+                      <span>Verified Poovar Boat Tour Standard</span>
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         DIRECT SUPPORT BANNER (Awwwards Midnight Ocean Navy)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 bg-neera-navy-waves bg-[#06192e] text-white border-t border-white/10">
+      <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-xs font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+          <i class="ph-fill ph-chat-circle text-[#b19d7f]"></i> DIRECT SUPPORT DESK
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-marcellus text-white uppercase tracking-[0.12em]">
+          Have Another Question?
+        </h2>
+        <p class="text-base sm:text-lg text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
+          Our local boat team is available daily by phone or WhatsApp to help you plan the best backwater ride for your schedule.
+        </p>
+        <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+          <a
+            href="/contact/"
+            class="px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl"
+          >
+            Contact Us &amp; Book
+          </a>
+          <a
+            href="tel:+917902291301"
+            class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-[7px] transition border border-white/20 flex items-center gap-2"
+          >
+            <i class="ph-bold ph-phone text-[#b19d7f]"></i> Call +91 79022 91301
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

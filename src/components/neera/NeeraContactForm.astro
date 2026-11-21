@@ -1,0 +1,42 @@
+---
+// NEERA THEME SECTION 12: BOOKING INQUIRY FORM ("GET IN TOUCH")
+// Topographic contour background with clean 2-column inputs and bronze button
+import ContactForm from '../ContactForm';
+---
+
+<section id="contact-booking" class="relative bg-neera-sand-waves bg-[#faf9f5] py-20 lg:py-28 overflow-hidden text-[#0d0d0d] border-b border-[#ede8e1]">
+  <div class="relative z-10 max-w-[1040px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Header matching Neera -->
+    <div class="text-center space-y-3 max-w-2xl mx-auto neera-reveal">
+      <span class="text-[11px] font-bold uppercase tracking-[0.25em] text-[#b19d7f] block">
+        CONTACT US
+      </span>
+      <h2 class="font-marcellus text-3xl sm:text-4xl lg:text-5xl uppercase tracking-[0.14em] text-[#06192e]">
+        GET IN TOUCH
+      </h2>
+      <!-- Verbatim text from PDF -->
+      <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+        Poovar boating booking is easy: fill in the form below or call Poovar Boat Tour. Tell us your date and time, and we will confirm your ride.
+      </p>
+    </div>
+
+    <!-- Contact Form Card with Neera Styling -->
+    <div class="bg-white p-8 sm:p-12 border border-gray-200 shadow-2xl space-y-6 neera-reveal">
+      <ContactForm client:load />
+
+      <!-- Contact Details Footer Row -->
+      <div class="pt-6 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center text-xs font-mono">
+        <div class="p-3 bg-[#f5f3ef] rounded-[7px]">
+          <span class="text-[#b19d7f] block font-bold mb-1">CALL &amp; WHATSAPP</span>
+          <a href="tel:+917902291301" class="text-[#06192e] font-bold hover:underline">+91 79022 91301</a>
+        </div>
+        <div class="p-3 bg-[#f5f3ef] rounded-[7px]">
+          <span class="text-[#b19d7f] block font-bold mb-1">EMAIL DESK</span>
+          <a href="mailto:info.poovarboating@gmail.com" class="text-[#06192e] hover:underline">info.poovarboating@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

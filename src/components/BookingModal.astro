@@ -1,0 +1,240 @@
+---
+const phoneNumber = '+917902291301';
+const phoneDisplay = '+91 79022 91301';
+---
+
+<!-- =====================================================================
+     LUXURY NEERA THEME DIRECT BOOKING MODAL
+     Palette: Deep Ocean Navy (#06192e), Sand Bronze (#b19d7f), Oat (#faf9f5)
+     Typography: El Messiri / Plus Jakarta Sans
+     Border Radius: Exactly 7px (rounded-[7px])
+     ===================================================================== -->
+<div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-[#06192e]/80 backdrop-blur-md transition-opacity duration-300">
+  <div class="bg-white rounded-[7px] max-w-lg w-full p-6 sm:p-9 shadow-2xl border border-[#ede8e1] relative animate-fadeIn">
+    
+    <!-- Close Button (7px radius) -->
+    <button
+      type="button"
+      onclick="closeBookingModal()"
+      class="absolute top-5 right-5 w-8 h-8 rounded-[7px] bg-[#faf9f5] hover:bg-[#06192e] text-gray-500 hover:text-[#b19d7f] border border-[#ede8e1] flex items-center justify-center transition cursor-pointer"
+      aria-label="Close Modal"
+    >
+      <i class="ph-bold ph-x text-sm"></i>
+    </button>
+
+    <!-- Eyebrow Pill -->
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[7px] bg-[#b19d7f]/15 border border-[#b19d7f]/30 text-[10px] font-mono font-bold uppercase tracking-[0.22em] text-[#b19d7f] mb-3">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#b19d7f]"></span>
+      <span>DIRECT JETTY RESERVATION</span>
+    </div>
+
+    <!-- Heading in Luxury Serif -->
+    <h3 class="font-marcellus text-2xl sm:text-3xl uppercase tracking-[0.10em] text-[#06192e] mb-1">
+      Book Your Poovar Cruise
+    </h3>
+    
+    <!-- Dynamic Package Label in Bronze Mono -->
+    <p id="selectedPackageLabel" class="text-xs font-mono text-[#b19d7f] font-semibold mb-6 flex items-center gap-1.5">
+      <i class="ph-bold ph-boat text-sm"></i>
+      <span>Package: Standard 2-Hour Cruise (Rs 1,200 for 7 People)</span>
+    </p>
+
+    <!-- Form -->
+    <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4 text-xs font-sans">
+      <div>
+        <label for="modalGuestName" class="block font-mono text-[11px] uppercase tracking-wider text-gray-700 font-semibold mb-1.5">
+          Your Name *
+        </label>
+        <input
+          id="modalGuestName"
+          name="name"
+          type="text"
+          required
+          placeholder="Enter your full name"
+          class="w-full px-4 py-3 rounded-[7px] border border-[#ede8e1] bg-[#faf9f5] focus:bg-white focus:border-[#b19d7f] focus:outline-none focus:ring-1 focus:ring-[#b19d7f] text-sm text-[#06192e] transition"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div>
+          <label for="modalPhone" class="block font-mono text-[11px] uppercase tracking-wider text-gray-700 font-semibold mb-1.5">
+            Phone / WhatsApp *
+          </label>
+          <input
+            id="modalPhone"
+            name="phone"
+            type="tel"
+            required
+            placeholder="+91 79022 91301"
+            class="w-full px-4 py-3 rounded-[7px] border border-[#ede8e1] bg-[#faf9f5] focus:bg-white focus:border-[#b19d7f] focus:outline-none focus:ring-1 focus:ring-[#b19d7f] text-sm text-[#06192e] transition"
+          />
+        </div>
+        <div>
+          <label for="modalDate" class="block font-mono text-[11px] uppercase tracking-wider text-gray-700 font-semibold mb-1.5">
+            Preferred Date *
+          </label>
+          <input
+            id="modalDate"
+            name="date"
+            type="date"
+            required
+            class="w-full px-4 py-3 rounded-[7px] border border-[#ede8e1] bg-[#faf9f5] focus:bg-white focus:border-[#b19d7f] focus:outline-none focus:ring-1 focus:ring-[#b19d7f] text-sm text-[#06192e] transition"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="packageSelect" class="block font-mono text-[11px] uppercase tracking-wider text-gray-700 font-semibold mb-1.5">
+          Select Cruise / Service
+        </label>
+        <div class="relative">
+          <select
+            id="packageSelect"
+            name="package"
+            class="w-full px-4 py-3 rounded-[7px] border border-[#ede8e1] bg-[#faf9f5] focus:bg-white focus:border-[#b19d7f] focus:outline-none focus:ring-1 focus:ring-[#b19d7f] text-sm text-[#06192e] transition cursor-pointer appearance-none pr-10"
+          >
+            <option value="Standard 2-Hour Cruise (Rs 1,200 for 7 People)">Standard 2-Hour Cruise (Rs 1,200 for up to 7 People)</option>
+            <option value="Poovar Motor Boat Cruise (Main Ride)">Poovar Motor Boat Cruise (Main Ride)</option>
+            <option value="Poovar Sunset Cruise (5:00 PM – 6:30 PM)">Poovar Sunset Cruise (5:00 PM – 6:30 PM)</option>
+            <option value="Poovar Honeymoon Couple Cruise (Private)">Poovar Honeymoon Couple Cruise (Private)</option>
+            <option value="Poovar Bird Watching Cruise (Mangroves)">Poovar Bird Watching Cruise (Mangroves)</option>
+            <option value="Boat Cruise + Taxi Service Trip">Boat Cruise + Taxi Service Trip</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-500">
+            <i class="ph-bold ph-caret-down text-xs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit CTA Button (Sand Bronze with 7px Radius) -->
+      <button
+        type="submit"
+        class="w-full mt-2 py-3.5 rounded-[7px] bg-[#b19d7f] hover:bg-[#9e8a6d] active:scale-[0.99] text-white font-bold uppercase tracking-[0.20em] text-xs transition-all duration-300 shadow-xl cursor-pointer flex items-center justify-center gap-2"
+      >
+        <span>Confirm Direct Inquiry</span>
+        <i class="ph-bold ph-arrow-right text-sm"></i>
+      </button>
+
+      <!-- Direct WhatsApp Subtext -->
+      <div class="pt-2 text-center text-gray-600 text-xs font-mono">
+        <span>Instant WhatsApp confirmation: </span>
+        <a
+          href={`https://wa.me/917902291301`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#06192e] hover:text-[#b19d7f] font-bold underline transition"
+        >
+          {phoneDisplay}
+        </a>
+      </div>
+    </form>
+
+    <!-- Confirmation Message Inside Modal -->
+    <div id="bookingSuccessMsg" class="hidden mt-5 p-4 rounded-[7px] bg-[#06192e] text-white border border-[#b19d7f]/40 shadow-xl">
+      <div class="font-marcellus text-sm uppercase tracking-wider text-[#b19d7f] mb-1 flex items-center gap-2 font-bold">
+        <i class="ph-fill ph-check-circle text-base"></i>
+        <span>Inquiry Received by Poovar Boat Tour</span>
+      </div>
+      <p class="text-xs text-white/85 font-light leading-relaxed">
+        Our local jetty coordinator will call or WhatsApp you to confirm your boat slot. For immediate assistance, call <a href={`tel:${phoneNumber}`} class="font-bold text-[#b19d7f] underline">{phoneDisplay}</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Subtle Toast Notification (Matching Neera Navy) -->
+<div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden bg-[#06192e] text-white px-5 py-3 rounded-[7px] shadow-2xl text-xs font-mono items-center gap-2.5 border border-[#b19d7f]/40">
+  <i class="ph-fill ph-check-circle text-[#b19d7f]"></i>
+  <span>Inquiry Sent to Poovar Boat Tour!</span>
+</div>
+
+<script is:inline>
+  function openBookingModal(packageName) {
+    var modal = document.getElementById('bookingModal');
+    var label = document.getElementById('selectedPackageLabel');
+    var select = document.getElementById('packageSelect');
+    var successMsg = document.getElementById('bookingSuccessMsg');
+    if (successMsg) successMsg.classList.add('hidden');
+    if (label && packageName) {
+      label.innerHTML = '<i class="ph-bold ph-boat text-sm"></i><span>Selected: ' + packageName + '</span>';
+    }
+    if (select && packageName) {
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(packageName.toLowerCase()) || packageName.toLowerCase().includes(select.options[i].text.toLowerCase())) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function closeBookingModal() {
+    var modal = document.getElementById('bookingModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function handleBookingSubmit(event) {
+    event.preventDefault();
+    var form = event.target;
+    var name = form.name ? form.name.value : '';
+    var phone = form.phone ? form.phone.value : '';
+    var date = form.date ? form.date.value : '';
+    var pkg = form.package ? form.package.value : '';
+
+    var successMsg = document.getElementById('bookingSuccessMsg');
+    if (successMsg) {
+      successMsg.classList.remove('hidden');
+    }
+
+    // Forward to WhatsApp with direct operator message
+    var text = encodeURIComponent(
+      "Hello Poovar Boat Tour, I would like to book a ride!\n" +
+      "Name: " + name + "\n" +
+      "Phone: " + phone + "\n" +
+      "Date: " + date + "\n" +
+      "Cruise: " + pkg
+    );
+    setTimeout(function() {
+      window.open("https://wa.me/917902291301?text=" + text, "_blank");
+    }, 1200);
+
+    form.reset();
+  }
+
+  function toggleSavedToast() {
+    var toast = document.getElementById('toastBanner');
+    if (toast) {
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(function() {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2800);
+    }
+  }
+
+  // Bind outside click
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('bookingModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeBookingModal();
+        }
+      });
+    }
+  });
+
+  // Expose to window
+  window.openBookingModal = openBookingModal;
+  window.closeBookingModal = closeBookingModal;
+  window.handleBookingSubmit = handleBookingSubmit;
+  window.toggleSavedToast = toggleSavedToast;
+</script>

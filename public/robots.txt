@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://poovarboattour.com/sitemap-index.xml

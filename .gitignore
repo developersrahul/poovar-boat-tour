@@ -1,0 +1,32 @@
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Astro generated types
+.astro/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Temporary / Scratch directories & scripts
+scratch/
+scratch_images/
+temp_gallery_extracted/
+*.py
+pdf_content.txt
+
+# Editor / System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

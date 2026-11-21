@@ -1,0 +1,431 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://poovarboattour.com/contact/#webpage",
+      "url": "https://poovarboattour.com/contact/",
+      "name": "Poovar Boating Booking and Contact",
+      "isPartOf": { "@id": "https://poovarboattour.com/#website" },
+      "mainEntity": { "@id": "https://poovarboattour.com/#business" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poovarboattour.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://poovarboattour.com/contact/" }
+      ]
+    }
+  ]
+};
+
+const contactFaqs = [
+  {
+    num: "01",
+    q: "1. How do I book a Poovar boat ride?",
+    a: "To book a Poovar boat ride, fill in the booking form on this page or call Poovar Boat Tour on +91 79022 91301."
+  },
+  {
+    num: "02",
+    q: "2. Where is the Poovar Boat Tour boarding point?",
+    a: "The boarding point is on Attupuram–Chalakkara Road, Kulathoor, near Ucchakkada, Thiruvananthapuram. Use the map on this page for directions."
+  },
+  {
+    num: "03",
+    q: "3. How do I reach Poovar from Trivandrum airport or railway station?",
+    a: "Poovar is about 30 km from Trivandrum airport and 27 km from Trivandrum Central railway station. Take a taxi or car toward Poovar, or ask for our taxi service."
+  },
+  {
+    num: "04",
+    q: "4. What is the phone number of Poovar Boat Tour?",
+    a: "You can call Poovar Boat Tour on +91 79022 91301 to book a ride or ask about the price."
+  },
+  {
+    num: "05",
+    q: "5. What is the email address of Poovar Boat Tour?",
+    a: "The email address of Poovar Boat Tour is info.poovarboating@gmail.com. You can send your date, group size and cruise type, and the team will reply."
+  },
+  {
+    num: "06",
+    q: "6. Can I book Poovar boating by phone or message?",
+    a: "Yes, you can book by calling Poovar Boat Tour or by sending your details through the booking form. Tell us your date, time, cruise and number of people."
+  },
+  {
+    num: "07",
+    q: "7. Do I need to book a Poovar boat ride in advance?",
+    a: "Booking in advance is a good idea on weekends, holidays and for the sunset cruise. Call us to check which boats and times are free."
+  },
+  {
+    num: "08",
+    q: "8. What details do I need to give when booking?",
+    a: "Give your name, phone number, travel date, preferred time, cruise type and number of people. The form on this page asks for these."
+  },
+  {
+    num: "09",
+    q: "9. How soon will I receive a booking confirmation?",
+    a: "We confirm your booking when you contact us, by phone call or reply to your message. Keep the confirmation for the day of your ride."
+  },
+  {
+    num: "10",
+    q: "10. Can I book a Poovar boat ride on the same day?",
+    a: "Yes, same-day booking is possible when a boat is free. Call Poovar Boat Tour to check availability for your time."
+  }
+];
+---
+
+<Layout
+  title="Poovar Boating Booking | Contact Poovar Boat Tour"
+  description="Book your Poovar boating ride online or call Poovar Boat Tour. Find our boarding point, phone number and directions."
+  canonicalUrl="https://poovarboattour.com/contact/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+  <!-- =====================================================================
+       1. HERO SECTION: 90vh Deep Navy & Bronze Tracking
+       ===================================================================== -->
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] sm:h-[90vh] w-full flex flex-col justify-center items-center bg-neera-navy-waves bg-[#06192e] text-white pt-36 sm:pt-28 pb-16 sm:pb-12 overflow-hidden border-b border-white/10">
+    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+      
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-[11px] font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+        <i class="ph-fill ph-phone-call text-[#b19d7f]"></i> DIRECT BOOKING &amp; BOARDING POINT
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-marcellus text-white uppercase tracking-[0.14em] leading-tight max-w-5xl mx-auto">
+        Poovar Boating Booking and Contact
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
+        Book your Poovar boating ride online or call Poovar Boat Tour. Find our boarding point, phone number and directions.
+      </p>
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono uppercase tracking-widest text-[#b19d7f]">
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-phone text-[#b19d7f]"></i> +91 79022 91301</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-whatsapp-logo text-[#b19d7f]"></i> WhatsApp: +91 79022 91301</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="ph-bold ph-envelope text-[#b19d7f]"></i> info.poovarboating@gmail.com</span>
+      </div>
+
+      <!-- Downward scroll cue -->
+      <div class="pt-8 flex justify-center">
+        <a href="#contact-manifesto" class="text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs font-mono uppercase tracking-widest transition">
+          <span>Make a Reservation</span>
+          <i class="ph-bold ph-arrow-down text-sm animate-bounce text-[#b19d7f]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       AWWWARDS-INSPIRED EDITORIAL CONTACT CANVAS (Zero rigid boxes!)
+       ===================================================================== -->
+  <main id="contact-manifesto" class="relative bg-[#faf9f5] text-[#0d0d0d] overflow-hidden">
+    
+    <!-- =====================================================================
+         SECTION 1: SPLIT EDITORIAL BOOKING SPREAD (Form + Direct Captain's Desk)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left: Direct Captain's Desk Directory -->
+          <div class="lg:col-span-6 space-y-8">
+            <div class="space-y-3">
+              <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+                01 • DIRECT CAPTAIN'S DESK
+              </span>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] leading-tight">
+                Connect Directly with Our Boating Team
+              </h2>
+            </div>
+
+            <!-- Contact Directory with Hairline Dividers -->
+            <div class="divide-y divide-[#ede8e1] border-y border-[#ede8e1] text-sm font-light">
+              
+              <div class="py-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#b19d7f] block font-bold mb-1">
+                  Business Name:
+                </span>
+                <span class="font-marcellus text-lg text-[#06192e] uppercase tracking-wider font-bold">
+                  Poovar Boat Tour
+                </span>
+              </div>
+
+              <div class="py-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#b19d7f] block font-bold mb-1">
+                  Boarding Point &amp; Office Address:
+                </span>
+                <p class="text-gray-700 leading-relaxed">
+                  Attupuram–Chalakkara Road, Kulathoor, near Ucchakkada, Thiruvananthapuram, Kerala 695506
+                </p>
+              </div>
+
+              <div class="py-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#b19d7f] block font-bold mb-1">
+                  Direct Phone &amp; WhatsApp:
+                </span>
+                <div class="flex flex-wrap items-center gap-6 pt-1 font-mono text-base font-bold text-[#06192e]">
+                  <a href="tel:+917902291301" class="hover:text-[#b19d7f] transition flex items-center gap-1.5">
+                    <i class="ph-bold ph-phone text-[#b19d7f]"></i> +91 79022 91301
+                  </a>
+                  <a href="https://wa.me/917902291301" target="_blank" rel="noopener noreferrer" class="hover:text-[#b19d7f] transition flex items-center gap-1.5 text-sm">
+                    <i class="ph-bold ph-whatsapp-logo text-emerald-600"></i> WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <div class="py-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#b19d7f] block font-bold mb-1">
+                  Email Address:
+                </span>
+                <a href="mailto:info.poovarboating@gmail.com" class="text-[#06192e] hover:text-[#b19d7f] font-mono underline font-medium transition">
+                  info.poovarboating@gmail.com
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Editorial Advisory Note: What is the Best Way to Contact -->
+            <div class="p-6 bg-white border-l-4 border-[#b19d7f] border-y border-r border-[#ede8e1] rounded-[7px] space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#06192e] font-bold block">
+                WHAT IS THE BEST WAY TO CONTACT POOVAR BOAT TOUR?
+              </span>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+                The best way to contact Poovar Boat Tour is by phone or through the booking form on this page. You can also email info.poovarboating@gmail.com with your date and group size.
+              </p>
+            </div>
+
+            <!-- Direct Quick Action CTAs -->
+            <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+              <a
+                href="https://wa.me/917902291301"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl flex items-center gap-2 cursor-pointer"
+              >
+                <i class="ph-bold ph-whatsapp-logo text-base"></i> WhatsApp Direct
+              </a>
+              <a
+                href="tel:+917902291301"
+                class="px-8 py-4 bg-[#06192e] hover:bg-[#b19d7f] text-white rounded-[7px] transition shadow-lg flex items-center gap-2"
+              >
+                <i class="ph-bold ph-phone text-base"></i> Call Desk
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right: The Booking Form Canvas (Clean Minimal Framing) -->
+          <div class="lg:col-span-6 bg-white p-8 sm:p-12 border border-[#ede8e1] rounded-[7px] shadow-sm space-y-6">
+            <div class="space-y-2">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-xs font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+                <i class="ph-bold ph-check-circle text-[#b19d7f]"></i> QUICK ONLINE BOOKING
+              </span>
+              <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.10em]">
+                Book Your Poovar Boat Ride
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+                Poovar boating booking is easy: fill in the form below or call Poovar Boat Tour. Tell us your date and time, and we will confirm your ride.
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <ContactForm client:load />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: TRAVEL, DIRECTIONS & LARGE GROUP SPREAD
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left: How to Reach Poovar & Mile Markers -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="space-y-2">
+              <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+                02 • TRAVEL &amp; DIRECTIONS
+              </span>
+              <h3 class="text-3xl sm:text-4xl font-marcellus text-[#06192e] uppercase tracking-[0.10em]">
+                How to Reach Poovar
+              </h3>
+            </div>
+
+            <div class="space-y-4 text-base text-gray-700 font-light leading-relaxed">
+              <p>
+                Poovar is about 30 km from Trivandrum airport and 27 km from Trivandrum Central railway station. Kanyakumari is about 71 km away.
+              </p>
+              <p class="text-sm text-gray-600">
+                Take a taxi or car toward Poovar and use the map on this page to find our boarding point. If you would like pick-up, ask for our taxi service when you book.
+              </p>
+            </div>
+
+            <!-- Sleek Horizontal Mile-Marker Track -->
+            <div class="pt-4 border-t border-[#ede8e1]">
+              <div class="grid grid-cols-3 gap-4 divide-x divide-[#ede8e1]">
+                <div class="first:pl-0 pr-3">
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">30 km</span>
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Trivandrum Airport</span>
+                </div>
+                <div class="px-3">
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">27 km</span>
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Trivandrum Central</span>
+                </div>
+                <div class="pl-3">
+                  <span class="font-marcellus text-2xl sm:text-3xl text-[#06192e] font-bold block">71 km</span>
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider block mt-1">Kanyakumari</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Can I Book Poovar Boating for a Large Group? -->
+          <div class="lg:col-span-5 p-8 sm:p-10 rounded-[7px] bg-[#06192e] text-white border border-[#b19d7f]/30 space-y-5 shadow-2xl relative overflow-hidden">
+            <div class="w-12 h-12 rounded-[7px] bg-white/10 text-[#b19d7f] flex items-center justify-center text-2xl border border-white/15">
+              <i class="ph-bold ph-users-three"></i>
+            </div>
+            
+            <h4 class="text-2xl font-marcellus text-white uppercase tracking-wide">
+              Can I Book Poovar Boating for a Large Group?
+            </h4>
+            
+            <p class="text-sm sm:text-base text-white/90 leading-relaxed font-light">
+              One boat carries up to 7 people. For a bigger group, contact us and ask about booking more than one boat.
+            </p>
+            
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+              Tell us the date and the number of people so we can plan your ride. Multiple boats can be coordinated to depart together for large families and tourist groups.
+            </p>
+
+            <div class="pt-4 border-t border-white/15 text-xs font-mono text-[#b19d7f] uppercase tracking-wider">
+              ✦ Coordinated Multi-Boat Flotilla Available
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: BOARDING POINT INTERACTIVE MAP
+         ===================================================================== -->
+    <section class="py-16 sm:py-24 border-b border-[#ede8e1]">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+              FIND US ON THE WATER • JETTY LOCATION
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-marcellus text-[#06192e] uppercase tracking-[0.10em] mt-1">
+              Boarding Point Map
+            </h3>
+          </div>
+          <span class="text-xs font-mono text-gray-500">
+            Attupuram–Chalakkara Road, Kulathoor, Ucchakkada
+          </span>
+        </div>
+
+        <div class="overflow-hidden rounded-[7px] border border-[#ede8e1] shadow-lg h-80 sm:h-96 w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15795.548842182283!2d77.0605051!3d8.3188247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05a76982ef5a17%3A0xe53be0a6bf6c5513!2sPoovar%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Poovar Boat Tour Boarding Point Map"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: 10 CONTACT FAQS (Seamless Borderless Accordion List)
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 border-b border-[#ede8e1] bg-white">
+      <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center space-y-3">
+          <span class="text-[11px] font-mono uppercase tracking-[0.25em] text-[#b19d7f] font-bold block">
+            HELP &amp; INFORMATION • BOOKING QUERIES
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-marcellus text-[#06192e] uppercase tracking-[0.12em]">
+            Contact Page Frequently Asked Questions
+          </h2>
+        </div>
+
+        <!-- Borderless Hairline Accordion List -->
+        <div class="divide-y divide-[#ede8e1] border-y border-[#ede8e1]">
+          {contactFaqs.map((faq) => (
+            <details name="exclusive-contact-faq" class="group py-6 transition-all duration-300 cursor-pointer">
+              <summary class="flex items-center justify-between gap-6 list-none font-marcellus text-lg sm:text-xl text-[#06192e] group-open:text-[#b19d7f] transition-colors select-none">
+                <span class="flex items-center gap-4">
+                  <span class="text-xs font-mono text-[#b19d7f] font-bold">{faq.num}</span>
+                  <span>{faq.q.replace(/^\d+\.\s*/, '')}</span>
+                </span>
+                <span class="w-8 h-8 rounded-[7px] bg-[#faf9f5] border border-[#ede8e1] group-open:border-[#b19d7f] flex items-center justify-center text-sm font-bold text-[#06192e] group-open:text-[#b19d7f] flex-shrink-0 transition-all duration-300">
+                  <span class="group-open:hidden">+</span>
+                  <span class="hidden group-open:inline">−</span>
+                </span>
+              </summary>
+              <div class="pt-4 pl-8 sm:pl-10 text-sm sm:text-base text-gray-700 font-light leading-relaxed pr-4">
+                <p>{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         FINAL RESERVATION BANNER
+         ===================================================================== -->
+    <section class="py-20 lg:py-28 bg-neera-navy-waves bg-[#06192e] text-white border-t border-white/10">
+      <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#b19d7f]/20 text-[#b19d7f] text-xs font-bold uppercase tracking-[0.25em] border border-[#b19d7f]/30 rounded-[7px]">
+          <i class="ph-fill ph-check-circle text-[#b19d7f]"></i> RESERVE YOUR BOAT RIDE
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-marcellus text-white uppercase tracking-[0.12em]">
+          Ready to Sail the Poovar Backwaters?
+        </h2>
+        <p class="text-base sm:text-lg text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
+          Contact our team directly to lock in your boat for morning, afternoon, or sunset slots.
+        </p>
+        <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-[0.18em]">
+          <a
+            href="https://wa.me/917902291301"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-4 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white rounded-[7px] transition shadow-xl"
+          >
+            Chat on WhatsApp
+          </a>
+          <a
+            href="tel:+917902291301"
+            class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-[7px] transition border border-white/20 flex items-center gap-2"
+          >
+            <i class="ph-bold ph-phone text-[#b19d7f]"></i> Call +91 79022 91301
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

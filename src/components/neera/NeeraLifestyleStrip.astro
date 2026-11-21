@@ -1,0 +1,35 @@
+---
+// NEERA THEME SECTION 13: 8-COLUMN MARITIME LIFESTYLE STRIP
+// 8 edge-to-edge high-resolution photographs of Poovar backwaters & boat life
+const stripImages = [
+  { src: '/images/gallery/gallery_01.webp', alt: 'Poovar Canal Passage' },
+  { src: '/images/gallery/gallery_03.webp', alt: 'Sunset Golden Water' },
+  { src: '/images/gallery/gallery_05.webp', alt: 'Coconut Palms Horizon' },
+  { src: '/images/gallery/gallery_07.webp', alt: 'Estuary Horizon & Calm Waters' },
+  { src: '/images/gallery/gallery_14.webp', alt: 'Coastal Golden Sand Shoreline' },
+  { src: '/images/gallery/gallery_19.webp', alt: 'Water Birds in Mangroves' },
+  { src: '/images/gallery/gallery_22.webp', alt: 'Golden Hour Sands' },
+  { src: '/images/gallery/gallery_26.webp', alt: 'Dusk Over Arabian Sea' }
+];
+---
+
+<section class="relative w-full overflow-hidden bg-[#06192e] border-b border-white/10">
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 divide-x divide-white/10">
+    {stripImages.map((img, i) => (
+      <div class="group relative overflow-hidden h-44 sm:h-56 lg:h-64 cursor-pointer">
+        <img
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-700 ease-out"
+        />
+        <div class="absolute inset-0 bg-[#06192e]/25 group-hover:bg-transparent transition duration-300"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
+          <div class="w-10 h-10 rounded-[7px] bg-white/90 text-[#06192e] flex items-center justify-center shadow-lg">
+            <i class="ph-bold ph-instagram-logo text-lg"></i>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

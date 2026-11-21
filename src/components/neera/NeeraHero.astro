@@ -1,0 +1,70 @@
+---
+// NEERA YACHT THEME HERO SECTION
+// 100vh (100dvh mobile) Cinematic Background Video with Spaced Marcellus Typography & Warm Bronze CTA
+const phoneNumber = '+917902291301';
+const phoneDisplay = '+91 79022 91301';
+---
+
+<section class="relative h-[100vh] h-[100dvh] min-h-[100vh] min-h-[100dvh] sm:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#06192e] text-white">
+  <!-- Background Tour Boat Cinematic Video (Zero Poster Image) -->
+  <div class="absolute inset-0 z-0 overflow-hidden bg-[#06192e]">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+    >
+      <source src="/videos/wooden_boat_lagoon.mp4" type="video/mp4" />
+    </video>
+    <!-- Deep Midnight Ocean Vignette Overlay matching Neera Palette -->
+    <div class="absolute inset-0 bg-[#06192e]/55 mix-blend-multiply pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#06192e] via-[#06192e]/40 to-[#06192e]/60 pointer-events-none"></div>
+  </div>
+
+  <!-- Center-Aligned Content inside max-w-[1280px] -->
+  <div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 flex flex-col justify-center items-center text-center">
+    
+    <!-- Neera Eyebrow Label (Compact & neat on mobile) -->
+    <div class="neera-reveal inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-[7px] bg-black/40 border border-[#b19d7f]/40 text-[9px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.25em] font-semibold text-[#b19d7f] mb-5 sm:mb-6 shadow-xl whitespace-nowrap">
+      <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#b19d7f] rotate-45 flex-shrink-0"></span>
+      <span>POOVAR BOAT TOUR • KERALA BACKWATERS</span>
+    </div>
+
+    <!-- EXACT H1 FROM PDF in Neera Spaced All-Caps Marcellus Typography (4 Rows on Mobile, 2 Lines on Laptop) -->
+    <h1 class="neera-reveal font-marcellus text-[35px] min-[390px]:text-[38px] sm:text-[44px] md:text-5xl lg:text-[46px] xl:text-[56px] 2xl:text-[62px] font-normal uppercase leading-[1.14] sm:leading-[1.12] tracking-[0.03em] sm:tracking-[0.12em] text-white max-w-5xl lg:max-w-6xl mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] text-center mx-auto">
+      <span class="block">POOVAR BOATING</span>
+      <span class="block sm:inline lg:block">
+        <span class="block sm:inline">BACKWATER</span>{" "}
+        <span class="block sm:inline">BOAT RIDES</span>{" "}
+        <span class="block sm:inline">IN KERALA</span>
+      </span>
+    </h1>
+
+    <!-- EXACT HERO TEXT FROM PDF -->
+    <p class="neera-reveal text-base sm:text-lg md:text-xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] text-center mx-auto font-sans tracking-wide">
+      Enjoy a calm boat ride through the Poovar backwaters. One boat, up to 7 people, Rs 1,200.
+    </p>
+
+    <!-- Neera Theme Refined Buttons (Decreased Size & 7px Border Radius) -->
+    <div class="neera-reveal flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+      <button
+        type="button"
+        onclick="openBookingModal('Book Boat Ride (Rs 1,200 for 7 People)')"
+        class="px-6 sm:px-7 py-3 sm:py-3.5 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold uppercase tracking-[0.18em] text-xs transition duration-300 shadow-xl hover:-translate-y-0.5 cursor-pointer flex items-center gap-2 active:translate-y-0 rounded-[7px]"
+      >
+        <span>Book Boat Ride</span>
+        <span class="text-sm font-normal">&rarr;</span>
+      </button>
+
+      <a
+        href={`tel:${phoneNumber}`}
+        class="px-6 sm:px-7 py-3 sm:py-3.5 bg-black/40 hover:bg-black/60 text-white border border-white/30 font-bold uppercase tracking-[0.18em] text-xs transition duration-300 hover:-translate-y-0.5 flex items-center gap-2 active:translate-y-0 rounded-[7px]"
+      >
+        <i class="ph-bold ph-phone text-[#b19d7f]"></i>
+        <span>Call: {phoneDisplay}</span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,340 @@
+---
+// NEERA THEME: AUTHENTIC REAL BOAT VIDEO SHOWCASE
+// Showcases the client's actual motor safari boat (Reg: KIV/VZM/PV/311/18)
+const phoneNumber = '+917902291301';
+const phoneDisplay = '+91 79022 91301';
+const whatsappLink = 'https://wa.me/917902291301?text=Hello%2C%20I%20want%20to%20book%20a%20Poovar%20boat%20ride%20on%20your%20safari%20boat%20(Rs%201%2C200%20for%20up%20to%207%20people)';
+---
+
+<section id="real-boat-video" class="relative bg-neera-navy-waves bg-[#06192e] py-20 lg:py-28 overflow-hidden text-white border-y border-[#b19d7f]/30">
+  
+  <!-- Subtle Top & Bottom Bronze Accent Gradients -->
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#b19d7f]/60 to-transparent pointer-events-none"></div>
+  <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#b19d7f]/60 to-transparent pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header (Centered Luxury Editorial) -->
+    <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16 neera-reveal">
+      <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-[7px] bg-black/40 border border-[#b19d7f]/40 text-[10px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-[#b19d7f] mb-4 shadow-lg">
+        <span class="w-1.5 h-1.5 bg-[#b19d7f] rotate-45 flex-shrink-0"></span>
+        <span>AUTHENTIC FLEET • ZERO STOCK FOOTAGE</span>
+      </div>
+
+      <h2 class="font-marcellus text-3xl sm:text-4xl lg:text-5xl uppercase tracking-[0.12em] text-white leading-[1.2] mb-5">
+        SEE OUR REAL POOVAR SAFARI BOAT IN ACTION
+      </h2>
+
+      <p class="text-sm sm:text-base text-gray-300 font-light leading-relaxed max-w-3xl mx-auto">
+        Every backwater cruise booked with us is operated directly on our private 7-passenger motor boat (<strong class="text-white font-medium">Reg: KIV/VZM/PV/311/18</strong>). Watch actual footage of our craft navigating the pristine mangrove waterways of Poovar.
+      </p>
+    </div>
+
+    <!-- Cinematic Video Player Container (Full Width 1280px Content Container) -->
+    <div class="relative w-full mx-auto neera-reveal">
+      <div class="relative overflow-hidden rounded-[7px] border border-[#b19d7f]/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] bg-black group">
+        
+        <!-- Video Element -->
+        <video
+          id="realBoatPlayer"
+          playsinline
+          loop
+          muted
+          preload="metadata"
+          poster="/images/about/real_boat_video_poster.webp"
+          class="w-full aspect-video object-cover cursor-pointer block"
+        >
+          <source src="/videos/poovar_real_client_boat.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Top Status Bar Over Video -->
+        <div class="absolute top-3 sm:top-5 inset-x-3 sm:inset-x-5 flex items-center justify-between pointer-events-none z-20">
+          <span class="inline-flex items-center gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-[7px] bg-[#06192e]/85 backdrop-blur-md border border-[#b19d7f]/40 text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#b19d7f] shadow-lg">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Real Poovar Boat Footage
+          </span>
+
+          <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[7px] bg-[#06192e]/85 backdrop-blur-md border border-white/20 text-[10px] font-mono tracking-wider text-white/90 shadow-lg">
+            <i class="ph-fill ph-boat text-xs text-[#b19d7f]"></i> REG: KIV/VZM/PV/311/18
+          </span>
+        </div>
+
+        <!-- Center Big Play / Pause Overlay Button -->
+        <div
+          id="videoCenterControl"
+          class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/15 transition-all duration-300 cursor-pointer z-10"
+        >
+          <button
+            id="centerPlayBtn"
+            type="button"
+            aria-label="Play Real Boat Video"
+            class="w-16 h-16 sm:w-20 sm:h-20 rounded-[7px] bg-[#b19d7f] hover:bg-[#9e8a6d] text-[#06192e] flex items-center justify-center transition duration-300 shadow-[0_10px_35px_rgba(177,157,127,0.5)] hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <i id="centerPlayIcon" class="ph-fill ph-play text-2xl sm:text-3xl translate-x-0.5"></i>
+          </button>
+        </div>
+
+        <!-- Bottom Interactive Controls Bar -->
+        <div class="absolute bottom-0 inset-x-0 p-3 sm:p-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-center justify-between gap-4 z-20 opacity-90 group-hover:opacity-100 transition-opacity">
+          
+          <!-- Left: Play/Pause and Mute/Unmute -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button
+              id="bottomPlayBtn"
+              type="button"
+              aria-label="Play or Pause"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-[7px] bg-[#06192e]/90 hover:bg-[#b19d7f] text-[#b19d7f] hover:text-[#06192e] border border-[#b19d7f]/40 flex items-center justify-center transition duration-200 cursor-pointer text-base sm:text-lg"
+            >
+              <i id="bottomPlayIcon" class="ph-fill ph-play"></i>
+            </button>
+
+            <button
+              id="bottomMuteBtn"
+              type="button"
+              aria-label="Toggle Audio"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-[7px] bg-[#06192e]/90 hover:bg-[#b19d7f] text-[#b19d7f] hover:text-[#06192e] border border-[#b19d7f]/40 flex items-center justify-center transition duration-200 cursor-pointer text-base sm:text-lg"
+            >
+              <i id="bottomMuteIcon" class="ph-fill ph-speaker-slash"></i>
+            </button>
+
+            <span class="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-white/80 font-medium pl-1 hidden sm:inline-block">
+              Poovar Motor Safari Boat
+            </span>
+          </div>
+
+          <!-- Right: Book Boat CTA & Fullscreen -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onclick="openBookingModal('Real Boat Section: Rs 1,200 per boat')"
+              class="px-3.5 sm:px-5 py-2 rounded-[7px] bg-[#b19d7f] hover:bg-[#9e8a6d] text-[#06192e] text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] transition duration-200 shadow-md cursor-pointer whitespace-nowrap"
+            >
+              Book This Boat
+            </button>
+
+            <button
+              id="fullscreenBtn"
+              type="button"
+              aria-label="Toggle Fullscreen"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-[7px] bg-[#06192e]/90 hover:bg-[#b19d7f] text-[#b19d7f] hover:text-[#06192e] border border-[#b19d7f]/40 flex items-center justify-center transition duration-200 cursor-pointer text-base sm:text-lg"
+            >
+              <i class="ph-bold ph-corners-out"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Badges Underneath Video (4 Clean Cards) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-10">
+        
+        <!-- Feature 1 -->
+        <div class="p-4 sm:p-5 rounded-[7px] bg-[#08233d]/70 border border-[#b19d7f]/25 text-left">
+          <div class="w-8 h-8 rounded-[7px] bg-[#b19d7f]/20 text-[#b19d7f] flex items-center justify-center mb-3">
+            <i class="ph-fill ph-users-three text-lg"></i>
+          </div>
+          <h4 class="font-marcellus text-xs sm:text-sm uppercase tracking-[0.14em] text-white mb-1">
+            Up to 7 Guests
+          </h4>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-relaxed">
+            Private craft reserved exclusively for your family or friends.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-4 sm:p-5 rounded-[7px] bg-[#08233d]/70 border border-[#b19d7f]/25 text-left">
+          <div class="w-8 h-8 rounded-[7px] bg-[#b19d7f]/20 text-[#b19d7f] flex items-center justify-center mb-3">
+            <i class="ph-fill ph-shield-check text-lg"></i>
+          </div>
+          <h4 class="font-marcellus text-xs sm:text-sm uppercase tracking-[0.14em] text-white mb-1">
+            KMB Certified
+          </h4>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-relaxed">
+            Govt registration KIV/VZM/PV/311/18 with licensed native pilot.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-4 sm:p-5 rounded-[7px] bg-[#08233d]/70 border border-[#b19d7f]/25 text-left">
+          <div class="w-8 h-8 rounded-[7px] bg-[#b19d7f]/20 text-[#b19d7f] flex items-center justify-center mb-3">
+            <i class="ph-fill ph-lifebuoy text-lg"></i>
+          </div>
+          <h4 class="font-marcellus text-xs sm:text-sm uppercase tracking-[0.14em] text-white mb-1">
+            Safety Gear
+          </h4>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-relaxed">
+            Certified lifejackets provided for all ages plus safety rings.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-4 sm:p-5 rounded-[7px] bg-[#08233d]/70 border border-[#b19d7f]/25 text-left">
+          <div class="w-8 h-8 rounded-[7px] bg-[#b19d7f]/20 text-[#b19d7f] flex items-center justify-center mb-3">
+            <i class="ph-fill ph-tag text-lg"></i>
+          </div>
+          <h4 class="font-marcellus text-xs sm:text-sm uppercase tracking-[0.14em] text-white mb-1">
+            Rs 1,200 Flat
+          </h4>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-relaxed">
+            One transparent rate per boat. No agent commissions or markups.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Action Row Below Specs -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <button
+          type="button"
+          onclick="openBookingModal('Book Real Safari Boat (Rs 1,200 for 7 Guests)')"
+          class="px-7 py-3.5 bg-[#b19d7f] hover:bg-[#9e8a6d] text-white font-bold uppercase tracking-[0.18em] text-xs transition duration-300 shadow-xl rounded-[7px] cursor-pointer flex items-center gap-2"
+        >
+          <span>Book This Boat Ride</span>
+          <span class="text-sm font-normal">&rarr;</span>
+        </button>
+
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3.5 bg-[#06192e] hover:bg-[#b19d7f] text-white border border-[#b19d7f]/50 font-bold uppercase tracking-[0.18em] text-xs transition duration-300 shadow-lg rounded-[7px] flex items-center gap-2 group"
+        >
+          <i class="ph-bold ph-whatsapp-logo text-base text-[#b19d7f] group-hover:text-white transition-colors"></i>
+          <span>WhatsApp Booking</span>
+        </a>
+
+        <a
+          href={`tel:${phoneNumber}`}
+          class="px-6 py-3.5 bg-black/40 hover:bg-black/60 text-white border border-[#b19d7f]/40 font-bold uppercase tracking-[0.18em] text-xs transition duration-300 rounded-[7px] flex items-center gap-2"
+        >
+          <i class="ph-fill ph-phone text-sm text-[#b19d7f]"></i>
+          <span>Call: {phoneDisplay}</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Video Controller Script -->
+<script is:inline>
+  (function initRealBoatVideo() {
+    const video = document.getElementById('realBoatPlayer');
+    const centerControl = document.getElementById('videoCenterControl');
+    const centerPlayBtn = document.getElementById('centerPlayBtn');
+    const centerPlayIcon = document.getElementById('centerPlayIcon');
+    const bottomPlayBtn = document.getElementById('bottomPlayBtn');
+    const bottomPlayIcon = document.getElementById('bottomPlayIcon');
+    const bottomMuteBtn = document.getElementById('bottomMuteBtn');
+    const bottomMuteIcon = document.getElementById('bottomMuteIcon');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    if (!video) return;
+
+    function updatePlayState(isPlaying) {
+      if (isPlaying) {
+        if (centerPlayIcon) {
+          centerPlayIcon.className = 'ph-fill ph-pause text-2xl sm:text-3xl';
+        }
+        if (bottomPlayIcon) {
+          bottomPlayIcon.className = 'ph-fill ph-pause';
+        }
+        if (centerControl) {
+          centerControl.classList.add('opacity-0', 'pointer-events-none');
+        }
+      } else {
+        if (centerPlayIcon) {
+          centerPlayIcon.className = 'ph-fill ph-play text-2xl sm:text-3xl translate-x-0.5';
+        }
+        if (bottomPlayIcon) {
+          bottomPlayIcon.className = 'ph-fill ph-play';
+        }
+        if (centerControl) {
+          centerControl.classList.remove('opacity-0', 'pointer-events-none');
+        }
+      }
+    }
+
+    function togglePlay() {
+      if (video.paused || video.ended) {
+        video.play().then(function() {
+          updatePlayState(true);
+        }).catch(function(err) {
+          console.warn('Playback error:', err);
+        });
+      } else {
+        video.pause();
+        updatePlayState(false);
+      }
+    }
+
+    function toggleMute() {
+      video.muted = !video.muted;
+      if (video.muted) {
+        if (bottomMuteIcon) bottomMuteIcon.className = 'ph-fill ph-speaker-slash';
+      } else {
+        if (bottomMuteIcon) bottomMuteIcon.className = 'ph-fill ph-speaker-high';
+      }
+    }
+
+    function toggleFullscreen() {
+      const container = video.parentElement;
+      if (!document.fullscreenElement) {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    if (centerControl) centerControl.addEventListener('click', togglePlay);
+    if (centerPlayBtn) centerPlayBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      togglePlay();
+    });
+    if (video) video.addEventListener('click', togglePlay);
+    if (bottomPlayBtn) bottomPlayBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      togglePlay();
+    });
+    if (bottomMuteBtn) bottomMuteBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMute();
+    });
+    if (fullscreenBtn) fullscreenBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleFullscreen();
+    });
+
+    video.addEventListener('play', function() { updatePlayState(true); });
+    video.addEventListener('pause', function() { updatePlayState(false); });
+    video.addEventListener('ended', function() { updatePlayState(false); });
+
+    // Optional autoplay on scroll into view if muted
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && video.paused) {
+          video.muted = true;
+          video.play().then(function() {
+            updatePlayState(true);
+          }).catch(function() {
+            // Autoplay prevented by browser, graceful fallback
+            updatePlayState(false);
+          });
+        } else if (!entry.isIntersecting && !video.paused) {
+          video.pause();
+          updatePlayState(false);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    observer.observe(video);
+  })();
+</script>
